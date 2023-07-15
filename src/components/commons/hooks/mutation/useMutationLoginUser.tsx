@@ -41,7 +41,7 @@ export const useMutationLoginUser = (): IUseMutationLoginUser => {
           content: "잠시후 다시 시도해 주세요.",
         });
       setAccessToken(accessToken);
-      routerMovePage("/");
+      routerMovePage("/list");
     } catch (error) {
       if (error instanceof Error)
         Modal.error({

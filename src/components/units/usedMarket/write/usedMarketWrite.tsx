@@ -129,7 +129,7 @@ export default function UsedMarketWrite(
             onClick={
               props.isEdit
                 ? onClickMovePage(`/${props.id ?? ""}/`)
-                : onClickMovePage("/")
+                : onClickMovePage("/list")
             }
           >
             취소
