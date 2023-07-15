@@ -6,7 +6,6 @@ import { schema } from "./usedMarketWriteVaildation";
 import { useRouterMovePage } from "../../../commons/hooks/custom/useRouterMovePage";
 import { useMutationCreateUsedItem } from "../../../commons/hooks/mutation/useMutationCreateUsedItem";
 import { useEffectSetImage } from "../../../commons/hooks/custom/useEffectSetImage";
-import { useEffectSetFormImg } from "../../../commons/hooks/custom/useEffectSetFormImg";
 import { useMutationUpdateUsedItem } from "../../../commons/hooks/mutation/useMutationUpdateUsedItem";
 import {
   ICreateUseditemInput,
@@ -27,18 +26,20 @@ interface IFinalWriteBodyProps {
 export default function UsedMarketWrite(
   props: IFinalWriteBodyProps
 ): JSX.Element {
-  const [images, setImages] = useState<Record<number, string>>({ 0: "" });
+  const [images, setImages] = useState<Record<string, string>>({ 0: "" });
+  const [fakeImages, setFakeImages] = useState<Record<string, string>>({
+    0: "",
+  });
   const { onClickMovePage } = useRouterMovePage();
   const { createUsedItem } = useMutationCreateUsedItem();
+  const { updateUsedItem } = useMutationUpdateUsedItem();
   const { handleSubmit, register, setValue, formState } =
     useForm<ICreateUseditemInput>({
       resolver: yupResolver(schema),
       mode: "onChange",
     });
   useEffectSetImage({ setImages, data: props.data });
-  useEffectSetFormImg({ setValue, images });
   useEffectSetFormData({ setValue, data: props.data });
-  const { updateUsedItem } = useMutationUpdateUsedItem();
 
   const onChangeQuill = (value: string): void => {
     setValue("contents", value === "<p></br></p>" ? "" : value);
@@ -49,7 +50,9 @@ export default function UsedMarketWrite(
       <form
         onSubmit={wrapAsync(
           handleSubmit(
-            props.isEdit ? updateUsedItem(props.id ?? "") : createUsedItem
+            props.isEdit
+              ? updateUsedItem(props.id ?? "", images)
+              : createUsedItem(images)
           )
         )}
       >
@@ -107,12 +110,14 @@ export default function UsedMarketWrite(
         <S.ImgContainer>
           <S.ImgTitle>사진 첨부</S.ImgTitle>
           <S.ImgWrapper>
-            {Object.values(images).map((_, idx) => (
+            {Object.values(props.isEdit ? images : fakeImages).map((_, idx) => (
               <ImgUpload
                 key={uuidv4()}
                 idx={idx}
-                images={images}
+                images={images[idx]}
+                fakeImages={fakeImages}
                 setImages={setImages}
+                setFakeImages={setFakeImages}
               />
             ))}
           </S.ImgWrapper>

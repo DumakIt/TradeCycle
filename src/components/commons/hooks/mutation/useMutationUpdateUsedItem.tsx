@@ -7,6 +7,7 @@ import {
 } from "../../../../commons/types/generated/types";
 import { useRouterMovePage } from "../custom/useRouterMovePage";
 import { FETCH_USED_ITEM } from "../query/useQueryFetchUsedItem";
+import { UseMutationUploadFile } from "./useMutationUploadFile";
 
 const UPDATE_USED_ITEM = gql`
   mutation updateUseditem(
@@ -24,25 +25,30 @@ const UPDATE_USED_ITEM = gql`
 
 interface IUseMutationUpdateUsedItem {
   updateUsedItem: (
-    id: string
+    id: string,
+    images: Record<string, string>
   ) => (updateUseditemInput: IUpdateUseditemInput) => Promise<void>;
 }
 
 export const useMutationUpdateUsedItem = (): IUseMutationUpdateUsedItem => {
   const { routerMovePage } = useRouterMovePage();
+  const { uploadFile } = UseMutationUploadFile();
   const [mutation] = useMutation<
     Pick<IMutation, "updateUseditem">,
     IMutationUpdateUseditemArgs
   >(UPDATE_USED_ITEM);
 
   const updateUsedItem =
-    (id: string) => async (updateUseditemInput: IUpdateUseditemInput) => {
+    (id: string, images: Record<string, string>) =>
+    async (updateUseditemInput: IUpdateUseditemInput): Promise<void> => {
       try {
+        const resultImages = await uploadFile(images);
         await mutation({
           variables: {
             useditemId: id,
             updateUseditemInput: {
               ...updateUseditemInput,
+              images: resultImages,
               remarks: "",
             },
           },

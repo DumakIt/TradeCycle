@@ -1,6 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
 import {
   IMutation,
   IMutationUploadFileArgs,
@@ -14,16 +13,8 @@ export const UPLOAD_FILE = gql`
   }
 `;
 
-interface IUploadFileArgs {
-  idx: number;
-  images: Record<number, string>;
-  setImages: Dispatch<SetStateAction<Record<number, string>>>;
-}
-
 interface IUseMutationUploadFile {
-  uploadFile: (
-    args: IUploadFileArgs
-  ) => (event: ChangeEvent<HTMLInputElement>) => Promise<void>;
+  uploadFile: (images: Record<string, string>) => Promise<string[] | undefined>;
 }
 
 export const UseMutationUploadFile = (): IUseMutationUploadFile => {
@@ -32,36 +23,35 @@ export const UseMutationUploadFile = (): IUseMutationUploadFile => {
     IMutationUploadFileArgs
   >(UPLOAD_FILE);
 
-  const uploadFile =
-    (args: IUploadFileArgs) => async (event: ChangeEvent<HTMLInputElement>) => {
-      try {
-        const file = event.currentTarget.files?.[0];
-        if (file === undefined) return;
-
-        const result = await mutation({
-          variables: {
-            file,
+  const uploadFile = async (
+    images: Record<string, string>
+  ): Promise<string[] | undefined> => {
+    try {
+      // 이미지 저장용 DB에 저장후 다운로드 주소를 반환
+      const resultUrls = await Promise.all(
+        Object.values(images).map(async (el) => {
+          if (typeof el === "string") {
+            return el;
+          } else {
+            const result = await mutation({ variables: { file: el } });
+            return result.data?.uploadFile.url;
+          }
+        })
+      );
+      const filteredResultUrls = resultUrls.filter(
+        (el) => el !== undefined
+      ) as string[];
+      return filteredResultUrls;
+    } catch (error) {
+      if (error instanceof Error)
+        Modal.error({
+          content: "확인후 다시 시도해 주세요",
+          okButtonProps: {
+            style: { backgroundColor: "black", color: "white" },
           },
         });
-
-        args.setImages((prev) => ({
-          ...prev,
-          [args.idx]: result.data?.uploadFile.url ?? "",
-        }));
-
-        if (Object.values(args.images).length - 1 === args.idx) {
-          args.setImages((prev) => ({ ...prev, [args.idx + 1]: "" }));
-        }
-      } catch (error) {
-        if (error instanceof Error)
-          Modal.error({
-            content: "확인후 다시 시도해 주세요",
-            okButtonProps: {
-              style: { backgroundColor: "black", color: "white" },
-            },
-          });
-      }
-    };
+    }
+  };
 
   return { uploadFile };
 };
