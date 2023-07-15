@@ -22,7 +22,7 @@ export default function UseMarketLayout(): JSX.Element {
     <>
       <S.HeaderContainer>
         <div>
-          <S.LogoWrapper onClick={onClickMovePage("/")}>
+          <S.LogoWrapper onClick={onClickMovePage("/list")}>
             <img src="/images/logo.svg" />
           </S.LogoWrapper>
           {data?.fetchUserLoggedIn !== undefined ? (

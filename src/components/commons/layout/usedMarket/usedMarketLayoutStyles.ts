@@ -20,7 +20,7 @@ export const HeaderContainer = styled.header`
     min-width: 650px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-right: 20px;
   }
 `;
 
@@ -31,7 +31,7 @@ export const LogoWrapper = styled.div`
   height: 100%;
   cursor: pointer;
   & > img {
-    height: 40%;
+    height: 100%;
   }
 `;
 
@@ -107,7 +107,7 @@ export const ScrollHeaderContainer = styled.div`
     max-width: 1600px;
     height: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding-right: 0 20px;
   }
 
   & > div > div:first-of-type {
