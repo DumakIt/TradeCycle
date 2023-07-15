@@ -1,45 +1,38 @@
+import Link from "next/link";
 import * as S from "./usedMarketMainStyles";
-import InfiniteScroll from "react-infinite-scroller";
-import { useQueryFetchUsedItems } from "../../../commons/hooks/query/useQueryFetchUseditems";
-import { CreateAtTime } from "../../../commons/utility/createAtTime";
-import { IUseditem } from "../../../../commons/types/generated/types";
-import { useRouterMovePage } from "../../../commons/hooks/custom/useRouterMovePage";
-import { v4 as uuidv4 } from "uuid";
 
 export default function UsedMarketMain(): JSX.Element {
-  const { data, FetchMore } = useQueryFetchUsedItems();
-  const { onClickMovePage } = useRouterMovePage();
-
   return (
     <S.Container>
-      <S.WriteBtn onClick={onClickMovePage("/write")}>상품등록</S.WriteBtn>
-      <InfiniteScroll loadMore={FetchMore} hasMore={true}>
-        <S.ItemContainer>
-          {data?.fetchUseditems.map((el: IUseditem) => (
-            <S.ItemWrapper
-              key={uuidv4()}
-              onClick={onClickMovePage(`/${el._id}`)}
-            >
-              <S.ImgWrapper isImg={Boolean(el.images?.[0])}>
-                <img
-                  src={
-                    el.images?.[0] !== undefined && el.images?.[0] !== ""
-                      ? `https://storage.googleapis.com/${el.images[0]}`
-                      : "/images/defaultItem.webp"
-                  }
-                />
-              </S.ImgWrapper>
-              <S.ContentsWrapper>
-                <div>{el.name}</div>
-                <S.ContentsBottomWrapper>
-                  <div>{el.price?.toLocaleString()}원</div>
-                  <div>{CreateAtTime(el.createdAt)}</div>
-                </S.ContentsBottomWrapper>
-              </S.ContentsWrapper>
-            </S.ItemWrapper>
-          ))}
-        </S.ItemContainer>
-      </InfiniteScroll>
+      <S.GrayWrapper>
+        <div>
+          <S.Title>버리지 말아요</S.Title>
+          <S.Text>
+            더이상 사용하지 않는 물건 버리거나
+            <br /> 그냥 쌓아 두고만 있나요?
+          </S.Text>
+        </div>
+        <S.FirstSecondImg src="/images/mainImgFirst.webp" />
+      </S.GrayWrapper>
+      <S.WhiteWrapper>
+        <S.FirstSecondImg src="/images/mainImgSecond.webp" />
+        <div>
+          <S.Title>누군가는 필요해요</S.Title>
+          <S.Text>
+            나는 필요없어도
+            <br /> 누군가는 그것이 필요하답니다
+          </S.Text>
+        </div>
+      </S.WhiteWrapper>
+      <S.GrayWrapper>
+        <div>
+          <S.Title>여기서 해보아요</S.Title>
+          <Link href="/list">
+            <S.ListBtn>TradeCycle 매물보기</S.ListBtn>
+          </Link>
+        </div>
+        <S.ThirdImg src="/images/mainImgThird.webp" />
+      </S.GrayWrapper>
     </S.Container>
   );
 }
