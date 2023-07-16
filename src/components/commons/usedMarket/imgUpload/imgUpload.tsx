@@ -25,7 +25,6 @@ export default function ImgUpload(args: IImgUploadArgs): JSX.Element {
       fileReader.onload = (data) => {
         // 파일리더의 결과값이 string이 아닐수도 있으니 string일때만 실행되도록
         if (typeof data.target?.result === "string") {
-          console.log(data.target?.result);
           // 미리보기용 이미지 저장
           args.setFakeImages((prev) => ({
             ...prev,
