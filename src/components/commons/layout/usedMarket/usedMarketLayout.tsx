@@ -9,7 +9,7 @@ import { useQueryFetchUserLoggedIn } from "../../hooks/query/useQueryFetchUserLo
 import PointChargeModal from "../../usedMarket/pointChargeModal/pointChargeModal";
 import * as S from "./usedMarketLayoutStyles";
 
-export default function UseMarketLayout(): JSX.Element {
+export default function UsedMarketLayout(): JSX.Element {
   const router = useRouter();
   const isScroll = useEffectHandleScroll();
   const [isOpen, changeIsOpen] = useSetIsToggle();
