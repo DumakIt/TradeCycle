@@ -60,7 +60,7 @@ export default function UsedMarketLayout(): JSX.Element {
           )}
         </div>
       </S.HeaderContainer>
-      {router.asPath === "/list" && (
+      {router.asPath === "/list/" && (
         <S.ScrollHeaderContainer isScroll={isScroll}>
           <div>
             <S.LogoWrapper>
