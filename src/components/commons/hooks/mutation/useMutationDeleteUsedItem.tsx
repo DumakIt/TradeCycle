@@ -33,7 +33,7 @@ export const useMutationDeleteUsedItem = (): IUseMutationDeleteUsedItem => {
           variables,
           refetchQueries: [{ query: FETCH_USED_ITEMS }],
         });
-        routerMovePage(`/`);
+        routerMovePage(`/list`);
       } catch (error) {
         if (error instanceof Error)
           Modal.error({

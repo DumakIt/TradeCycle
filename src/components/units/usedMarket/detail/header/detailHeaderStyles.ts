@@ -85,5 +85,6 @@ export const BuyBtnBox = styled.div`
     font-size: 30px;
     color: #ffffff;
     border: none;
+    cursor: pointer;
   }
 `;
