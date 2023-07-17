@@ -62,8 +62,11 @@ export const Charge = styled.div`
   font-weight: 500;
   font-size: 14px;
   color: white;
-  text-decoration: underline;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const LogOut = styled.div`
@@ -71,6 +74,10 @@ export const LogOut = styled.div`
   font-size: 14px;
   color: white;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const FuncWrapper = styled.div`
