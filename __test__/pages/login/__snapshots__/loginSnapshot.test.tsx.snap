@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login 페이지 snapshot 테스트 1`] = `
+<div>
+  <div
+    class="css-i525u3"
+  >
+    <div>
+      <div
+        class="css-sabbx7"
+      >
+        로그인
+        <span>
+          Login
+        </span>
+      </div>
+      <div
+        class="css-1454229"
+      />
+      <form>
+        <div
+          class="css-12n6wyb"
+        >
+          <input
+            class="css-yw2wmv"
+            name="email"
+            placeholder="아이디"
+            type="text"
+          />
+          <div
+            class="css-1xo17en"
+          />
+        </div>
+        <div
+          class="css-1h42ijv"
+        >
+          <input
+            class="css-yw2wmv"
+            name="password"
+            placeholder="비밀번호"
+            type="password"
+          />
+          <div
+            class="css-1xo17en"
+          />
+        </div>
+        <button
+          class="css-z00cij"
+        >
+          로그인
+        </button>
+      </form>
+      <div
+        class="css-1njlw6g"
+      >
+        아직 계정이 없으신가요?
+         
+        <span>
+          회원가입
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

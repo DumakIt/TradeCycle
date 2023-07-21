@@ -10,7 +10,7 @@ module.exports = {
     sourceType: "module",
     project: "**/tsconfig.json",
   },
-  plugins: ["react"],
+  plugins: ["react", "jest/globals"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/consistent-type-imports": "off",

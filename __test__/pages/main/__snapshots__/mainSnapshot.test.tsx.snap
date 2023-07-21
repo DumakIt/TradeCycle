@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`main 페이지 snapshot 테스트 1`] = `
+<div>
+  <div
+    class="css-1wwuy2j"
+  >
+    <div
+      class="css-78wp26"
+    >
+      <div>
+        <h1
+          class="css-tez4ss"
+        >
+          버리지 말아요
+        </h1>
+        <p
+          class="css-rsdtfc"
+        >
+          더이상 사용하지 않는 물건 버리거나
+          <br />
+           그냥 쌓아 두고만 있나요?
+        </p>
+      </div>
+      <img
+        class="css-1o8qkht"
+        src="/images/mainImgFirst.webp"
+      />
+    </div>
+    <div
+      class="css-spv30w"
+    >
+      <img
+        class="css-1o8qkht"
+        src="/images/mainImgSecond.webp"
+      />
+      <div>
+        <h1
+          class="css-tez4ss"
+        >
+          누군가는 필요해요
+        </h1>
+        <p
+          class="css-rsdtfc"
+        >
+          나는 필요없어도
+          <br />
+           누군가는 그것이 필요하답니다
+        </p>
+      </div>
+    </div>
+    <div
+      class="css-78wp26"
+    >
+      <div>
+        <h1
+          class="css-tez4ss"
+        >
+          여기서 해보아요
+        </h1>
+        <a
+          class="css-15tufge"
+        >
+          TradeCycle 매물보기
+        </a>
+      </div>
+      <img
+        class="css-16qsjwx"
+        src="/images/mainImgThird.webp"
+      />
+    </div>
+  </div>
+</div>
+`;

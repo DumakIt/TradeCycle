@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`signUp 페이지 snapshot 테스트 1`] = `
+<div>
+  <div
+    class="css-i525u3"
+  >
+    <div>
+      <div
+        class="css-jvl4sf"
+      >
+        회원가입
+        <span>
+          Sign up
+        </span>
+      </div>
+      <div
+        class="css-15gutkd"
+      />
+      <form>
+        <div
+          class="css-1dxws33"
+        >
+          <div
+            class="css-y8pvf0"
+          >
+            <div
+              class="css-mgw645"
+            >
+              아이디
+            </div>
+            <input
+              class="css-1bxvv4d"
+              name="email"
+              placeholder="이메일 아이디를 @까지 정확하게 입력하세요."
+              type="text"
+            />
+          </div>
+          <div
+            class="css-r7hoq9"
+          />
+        </div>
+        <div
+          class="css-1dxws33"
+        >
+          <div
+            class="css-y8pvf0"
+          >
+            <div
+              class="css-mgw645"
+            >
+              비밀번호
+            </div>
+            <input
+              class="css-1bxvv4d"
+              name="password"
+              placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
+              type="password"
+            />
+          </div>
+          <div
+            class="css-r7hoq9"
+          />
+        </div>
+        <div
+          class="css-1dxws33"
+        >
+          <div
+            class="css-y8pvf0"
+          >
+            <div
+              class="css-mgw645"
+            >
+              비밀번호 확인
+            </div>
+            <input
+              class="css-1bxvv4d"
+              name="passwordCheck"
+              placeholder="영문+숫자 조합 8~16자리를 입력해주세요."
+              type="password"
+            />
+          </div>
+          <div
+            class="css-r7hoq9"
+          />
+        </div>
+        <div
+          class="css-1dxws33"
+        >
+          <div
+            class="css-y8pvf0"
+          >
+            <div
+              class="css-mgw645"
+            >
+              닉네임
+            </div>
+            <input
+              class="css-1bxvv4d"
+              name="name"
+              placeholder="Ex) 홍길동"
+              type="text"
+            />
+          </div>
+          <div
+            class="css-r7hoq9"
+          />
+        </div>
+        <button
+          class="css-7zva8o"
+        >
+          회원가입하기
+        </button>
+      </form>
+      <div
+        class="css-123a5yr"
+      >
+        이미 아이디가 있으신가요?
+         
+        <span>
+          로그인
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
