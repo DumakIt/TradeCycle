@@ -27,6 +27,7 @@ export default function UsedMarketLogin(): JSX.Element {
         <form onSubmit={wrapAsync(handleSubmit(loginUser))}>
           <S.EmailWrapper>
             <S.EmailPasswordInput
+              data-testid="input-email"
               type="text"
               placeholder="아이디"
               {...register("email")}
@@ -35,6 +36,7 @@ export default function UsedMarketLogin(): JSX.Element {
           </S.EmailWrapper>
           <S.PasswordWrapper>
             <S.EmailPasswordInput
+              data-testid="input-password"
               type="password"
               placeholder="비밀번호"
               {...register("password")}
@@ -43,7 +45,7 @@ export default function UsedMarketLogin(): JSX.Element {
               {formState.errors.password?.message}
             </S.inValidInput>
           </S.PasswordWrapper>
-          <S.LoginBtn>로그인</S.LoginBtn>
+          <S.LoginBtn data-testid="btn-login">로그인</S.LoginBtn>
         </form>
         <S.RegWrapper>
           아직 계정이 없으신가요?{" "}

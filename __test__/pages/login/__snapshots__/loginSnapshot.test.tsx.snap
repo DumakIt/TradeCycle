@@ -23,6 +23,7 @@ exports[`login 페이지 snapshot 테스트 1`] = `
         >
           <input
             class="css-yw2wmv"
+            data-testid="input-email"
             name="email"
             placeholder="아이디"
             type="text"
@@ -36,6 +37,7 @@ exports[`login 페이지 snapshot 테스트 1`] = `
         >
           <input
             class="css-yw2wmv"
+            data-testid="input-password"
             name="password"
             placeholder="비밀번호"
             type="password"
@@ -46,6 +48,7 @@ exports[`login 페이지 snapshot 테스트 1`] = `
         </div>
         <button
           class="css-z00cij"
+          data-testid="btn-login"
         >
           로그인
         </button>

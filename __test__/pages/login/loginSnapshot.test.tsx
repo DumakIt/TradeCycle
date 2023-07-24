@@ -1,15 +1,29 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot } from "recoil";
-import ApolloSetting from "../../../src/commons/apollo";
 import LoginPage from "../../../pages/login";
+import {
+  ApolloClient,
+  ApolloProvider,
+  HttpLink,
+  InMemoryCache,
+} from "@apollo/client";
+import fetch from "cross-fetch";
 
 it("login 페이지 snapshot 테스트", () => {
+  const client = new ApolloClient({
+    link: new HttpLink({
+      uri: "http://mock.com/graphql",
+      fetch,
+    }),
+    cache: new InMemoryCache(),
+  });
+
   const result = render(
     <RecoilRoot>
-      <ApolloSetting>
+      <ApolloProvider client={client}>
         <LoginPage />
-      </ApolloSetting>
+      </ApolloProvider>
     </RecoilRoot>
   );
   expect(result.container).toMatchSnapshot();
