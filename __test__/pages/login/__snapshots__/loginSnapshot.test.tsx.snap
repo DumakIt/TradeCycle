@@ -58,7 +58,9 @@ exports[`login 페이지 snapshot 테스트 1`] = `
       >
         아직 계정이 없으신가요?
          
-        <span>
+        <span
+          data-testid="btn-signUp"
+        >
           회원가입
         </span>
       </div>

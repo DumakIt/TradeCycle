@@ -8,7 +8,7 @@ export const apis = [
       ctx.data({
         loginUser: {
           accessToken: "test-accessToken",
-          __typename: "loginUser",
+          __typename: "Token",
         },
       })
     );

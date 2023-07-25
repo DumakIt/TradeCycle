@@ -38,21 +38,17 @@ describe("loginPage 테스트", () => {
     );
   });
 
-  it("유효하지 않은 폼", () => {
-    fireEvent.click(screen.getByTestId("btn-login"));
+  it("유효하지 않은 폼", async () => {
+    await waitFor(() => {
+      fireEvent.click(screen.getByTestId("btn-login"));
 
-    expect(
-      queryByText(
-        screen.getByTestId("input-email"),
-        "이메일 아이디를 @까지 정확하게 입력해주세요"
-      )
-    );
-    expect(
-      queryByText(
-        screen.getByTestId("input-password"),
-        "영문+숫자 조합 8~16자리의 비밀번호를 입력해주세요"
-      )
-    );
+      expect(
+        screen.getByText("이메일 아이디를 @까지 정확하게 입력해주세요.")
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText("영문+숫자 조합 8~16자리의 비밀번호를 입력해주세요.")
+      ).toBeInTheDocument();
+    });
   });
 
   it("유효한 폼", async () => {
@@ -66,6 +62,14 @@ describe("loginPage 테스트", () => {
 
     await waitFor(() => {
       expect(mockRouter.asPath).toEqual("/list");
+    });
+  });
+
+  it("회원가입 버튼 클릭", async () => {
+    fireEvent.click(screen.getByTestId("btn-signUp"));
+
+    await waitFor(() => {
+      expect(mockRouter.asPath).toEqual("/signUp");
     });
   });
 });

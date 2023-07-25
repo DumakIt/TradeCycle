@@ -49,7 +49,9 @@ export default function UsedMarketLogin(): JSX.Element {
         </form>
         <S.RegWrapper>
           아직 계정이 없으신가요?{" "}
-          <span onClick={onClickMovePage("/signUp")}>회원가입</span>
+          <span data-testid="btn-signUp" onClick={onClickMovePage("/signUp")}>
+            회원가입
+          </span>
         </S.RegWrapper>
       </div>
     </S.Container>
