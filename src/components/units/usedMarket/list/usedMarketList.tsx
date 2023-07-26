@@ -12,7 +12,9 @@ export default function UsedMarketList(): JSX.Element {
 
   return (
     <S.Container>
-      <S.WriteBtn onClick={onClickMovePage("/write")}>상품등록</S.WriteBtn>
+      <S.WriteBtn data-testid="btn-write" onClick={onClickMovePage("/write")}>
+        상품등록
+      </S.WriteBtn>
       <InfiniteScroll loadMore={FetchMore} hasMore={true}>
         <S.ItemContainer>
           {data?.fetchUseditems.map((el: IUseditem) => (
