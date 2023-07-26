@@ -28,7 +28,7 @@ export default function UsedMarketMain(): JSX.Element {
         <div>
           <S.Title>여기서 해보아요</S.Title>
           <Link href="/list">
-            <S.ListBtn>TradeCycle 매물보기</S.ListBtn>
+            <S.ListBtn data-testid="btn-list">TradeCycle 매물보기</S.ListBtn>
           </Link>
         </div>
         <S.ThirdImg src="/images/mainImgThird.webp" />

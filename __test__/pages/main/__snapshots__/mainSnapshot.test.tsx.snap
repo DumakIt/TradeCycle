@@ -60,6 +60,7 @@ exports[`main 페이지 snapshot 테스트 1`] = `
         </h1>
         <a
           class="css-15tufge"
+          data-testid="btn-list"
         >
           TradeCycle 매물보기
         </a>
