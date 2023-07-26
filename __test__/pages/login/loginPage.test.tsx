@@ -1,10 +1,4 @@
-import {
-  fireEvent,
-  queryByText,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot } from "recoil";
 import LoginPage from "../../../pages/login";

@@ -13,4 +13,16 @@ export const apis = [
       })
     );
   }),
+
+  gql.mutation("createUser", (req, res, ctx) => {
+    const { name } = req.variables.createUserInput;
+    return res(
+      ctx.data({
+        createUser: {
+          name,
+          __typename: "createUser",
+        },
+      })
+    );
+  }),
 ];

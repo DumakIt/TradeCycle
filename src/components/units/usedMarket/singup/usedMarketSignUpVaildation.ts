@@ -14,11 +14,11 @@ export const schema = yup.object({
     ),
   passwordCheck: yup
     .string()
-    .required("비밀번호를 한번 더 입력해주세요")
-    .oneOf([yup.ref("password")], "비밀번호가 일치하지 않습니다"),
+    .required("비밀번호를 한번 더 입력해주세요.")
+    .oneOf([yup.ref("password")], "비밀번호가 일치하지 않습니다."),
 
   name: yup
     .string()
-    .required("이름을 입력해 주세요")
+    .required("이름을 입력해 주세요.")
     .max(8, "닉네임은 최대 8글자까지 가능합니다."),
 });
