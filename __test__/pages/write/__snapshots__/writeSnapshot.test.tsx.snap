@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`write 페이지 snapshot 테스트 1`] = `
+<div>
+  <div
+    class="css-1fz8hrp"
+  >
+    <form>
+      <div
+        class="css-uxsw2a"
+      >
+        상품 등록
+      </div>
+      <div
+        class="css-1lf40f3"
+      />
+      <div
+        class="css-y8pvf0"
+      >
+        <div
+          class="css-1x0j9fz"
+        >
+          상품명
+        </div>
+        <input
+          class="css-1u5n5wb"
+          name="name"
+          placeholder="상품명을 작성해주세요"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="css-5c6tlw"
+      />
+      <div
+        class="css-f24dyb"
+      >
+        <div
+          class="css-1w6k5nd"
+        >
+          상품내용
+        </div>
+      </div>
+      <div
+        class="css-5c6tlw"
+      />
+      <div
+        class="css-y8pvf0"
+      >
+        <div
+          class="css-1x0j9fz"
+        >
+          판매 가격
+        </div>
+        <input
+          class="css-1u5n5wb"
+          name="price"
+          placeholder="판매 가격을 숫자만 작성해주세요"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        class="css-5c6tlw"
+      />
+      <div
+        class="css-vcmhry"
+      >
+        거래 위치
+      </div>
+      <div
+        class="css-b2v04n"
+      >
+        <div>
+          <input
+            class="css-13a75zd"
+            placeholder="거래장소를 입력해 주세요."
+            type="text"
+          />
+          <button
+            class="css-1yh45gh"
+            type="button"
+          >
+            검색
+          </button>
+        </div>
+      </div>
+      <div
+        class="css-ycjfom"
+      >
+        <div
+          class="css-1fma9vc"
+        >
+          사진 첨부
+        </div>
+        <div
+          class="css-o2j9ze"
+        >
+          <div>
+            <img
+              class="css-1w83z4h"
+              src="/images/addImg.webp"
+            />
+            <input
+              accept="image/jpeg, image/png"
+              class="css-38lglc"
+              type="file"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="css-18cog3v"
+      />
+      <div
+        class="css-oumc8s"
+      >
+        <button
+          class="css-1wa91kc"
+          type="button"
+        >
+          취소
+        </button>
+        <button
+          class="css-9zywp3"
+        >
+          등록
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+`;

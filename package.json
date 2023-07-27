@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "generate": "graphql-codegen",
-    "test": "jest"
+    "test": "jest --transformIgnorePatterns \"node_modules/(?!(react-kakao-maps-sdk)/)\""
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
