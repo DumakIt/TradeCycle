@@ -1,6 +1,3 @@
-
-배포 주소: https://minki.site
-
 ## Installation
 
 ```bash
@@ -42,7 +39,7 @@ react-quill 이용시 XSS공격을 대비해 Dompurify를 이용하였습니다.
 
 ---
 
-#### 주요기능
+## 주요기능
 
 
 |        페이지        | 영상                                                                                                                                           |
