@@ -63,6 +63,7 @@ export default function UsedMarketWrite(
         <S.InputsWrapper>
           <S.InputsTitle>상품명</S.InputsTitle>
           <S.Inputs
+            data-testid="input-title"
             type="text"
             placeholder="상품명을 작성해주세요"
             defaultValue={props.data?.fetchUseditem?.name ?? ""}
@@ -84,6 +85,7 @@ export default function UsedMarketWrite(
             )
           ) : (
             <S.CustomReactQuill
+              data-testid="input-contents"
               placeholder="상품을 설명해주세요."
               onChange={onChangeQuill}
             />
@@ -93,6 +95,7 @@ export default function UsedMarketWrite(
         <S.InputsWrapper>
           <S.InputsTitle>판매 가격</S.InputsTitle>
           <S.Inputs
+            data-testid="input-price"
             type="text"
             placeholder="판매 가격을 숫자만 작성해주세요"
             defaultValue={props.data?.fetchUseditem?.price ?? ""}
@@ -125,6 +128,7 @@ export default function UsedMarketWrite(
         <S.BottomLine></S.BottomLine>
         <S.BtnWrapper>
           <S.BtnCancel
+            data-testid="btn-cancel"
             type="button"
             onClick={
               props.isEdit
@@ -134,7 +138,9 @@ export default function UsedMarketWrite(
           >
             취소
           </S.BtnCancel>
-          <S.BtnSubmit>{props.isEdit ? "수정" : "등록"}</S.BtnSubmit>
+          <S.BtnSubmit data-testid="btn-submit">
+            {props.isEdit ? "수정" : "등록"}
+          </S.BtnSubmit>
         </S.BtnWrapper>
       </form>
     </S.Container>

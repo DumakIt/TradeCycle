@@ -24,6 +24,7 @@ exports[`write 페이지 snapshot 테스트 1`] = `
         </div>
         <input
           class="css-1u5n5wb"
+          data-testid="input-title"
           name="name"
           placeholder="상품명을 작성해주세요"
           type="text"
@@ -55,6 +56,7 @@ exports[`write 페이지 snapshot 테스트 1`] = `
         </div>
         <input
           class="css-1u5n5wb"
+          data-testid="input-price"
           name="price"
           placeholder="판매 가격을 숫자만 작성해주세요"
           type="text"
@@ -118,12 +120,14 @@ exports[`write 페이지 snapshot 테스트 1`] = `
       >
         <button
           class="css-1wa91kc"
+          data-testid="btn-cancel"
           type="button"
         >
           취소
         </button>
         <button
           class="css-9zywp3"
+          data-testid="btn-submit"
         >
           등록
         </button>
