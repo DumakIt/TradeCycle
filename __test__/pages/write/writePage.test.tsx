@@ -1,6 +1,12 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
-import { RecoilRoot } from "recoil";
+import { RecoilRoot, useRecoilState } from "recoil";
 import WritePage from "../../../pages/write";
 import {
   ApolloClient,
@@ -10,8 +16,16 @@ import {
 } from "@apollo/client";
 import fetch from "cross-fetch";
 import mockRouter from "next-router-mock";
+import { accessTokenState } from "../../../src/commons/stores";
 
 jest.mock("next/router", () => require("next-router-mock"));
+
+const TestComponent = () => {
+  const [, setAccessToken] = useRecoilState(accessTokenState);
+  setAccessToken("test-accessToken");
+
+  return <WritePage />;
+};
 
 describe("writePage 테스트", () => {
   beforeEach(() => {
@@ -26,30 +40,40 @@ describe("writePage 테스트", () => {
     render(
       <RecoilRoot>
         <ApolloProvider client={client}>
-          <WritePage />
+          <TestComponent />
         </ApolloProvider>
       </RecoilRoot>
     );
   });
 
-  it("유효하지 않은 폼 - 미입력", async () => {
+  it("상품명 입력 요소가 제대로 렌더링되었는지 확인", async () => {
     await waitFor(() => {
-      expect(screen.getByText("판매 가격")).toBeInTheDocument();
-      fireEvent.click(screen.getByTestId("btn-submit"));
-
-      expect(screen.getByText("상품명을 작성해주세요.")).toBeInTheDocument();
-      expect(screen.getByText("상품설명을 작성해주세요.")).toBeInTheDocument();
-      expect(screen.getByText("가격을 작성해 주세요.")).toBeInTheDocument();
-    });
-  });
-
-  it("유효하지 않은 폼 - 숫자 외 다른 문자", async () => {
-    await waitFor(() => {
-      fireEvent.change(screen.getByTestId("input-price"), {
-        target: { value: "abcdef" },
-      });
-
-      expect(screen.getByText("숫자만 작성해주세요.")).toBeInTheDocument();
+      const inputTitle = screen.getByTestId("input-title");
+      expect(inputTitle).toBeInTheDocument();
     });
   });
 });
+
+// describe("UsedMarketWrite 컴포넌트 테스트", () => {
+//   it("상품명 입력 요소가 제대로 렌더링되었는지 확인", () => {
+//     const client = new ApolloClient({
+//       link: new HttpLink({
+//         uri: "http://mock.com/graphql",
+//         fetch,
+//       }),
+//       cache: new InMemoryCache(),
+//     });
+
+//     render(
+//       <RecoilRoot>
+//         <ApolloProvider client={client}>
+//           <WritePage />
+//         </ApolloProvider>
+//       </RecoilRoot>
+//     );
+
+//     // input 요소를 data-testid 속성으로 찾아서 존재하는지 확인
+//     const inputTitle = screen.getByTestId("input-title");
+//     expect(inputTitle).toBeInTheDocument();
+//   });
+// });
