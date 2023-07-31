@@ -20,15 +20,15 @@ import { accessTokenState } from "../../../src/commons/stores";
 
 jest.mock("next/router", () => require("next-router-mock"));
 
-const TestComponent = () => {
-  const [, setAccessToken] = useRecoilState(accessTokenState);
-  setAccessToken("test-accessToken");
+// const TestComponent = () => {
+//   const [, setAccessToken] = useRecoilState(accessTokenState);
+//   setAccessToken("test-accessToken");
 
-  return <WritePage />;
-};
+//   return <WritePage />;
+// };
 
 describe("writePage 테스트", () => {
-  beforeEach(() => {
+  beforeAll(async () => {
     const client = new ApolloClient({
       link: new HttpLink({
         uri: "http://mock.com/graphql",
@@ -40,17 +40,15 @@ describe("writePage 테스트", () => {
     render(
       <RecoilRoot>
         <ApolloProvider client={client}>
-          <TestComponent />
+          <WritePage />
         </ApolloProvider>
       </RecoilRoot>
     );
   });
 
   it("상품명 입력 요소가 제대로 렌더링되었는지 확인", async () => {
-    await waitFor(() => {
-      const inputTitle = screen.getByTestId("input-title");
-      expect(inputTitle).toBeInTheDocument();
-    });
+    const inputTitle = screen.getByTestId("input-title");
+    expect(inputTitle).toBeInTheDocument();
   });
 });
 
