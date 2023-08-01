@@ -7,6 +7,7 @@ import {
 } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot, useRecoilState } from "recoil";
+
 import WritePage from "../../../pages/write";
 import {
   ApolloClient,
@@ -28,22 +29,24 @@ jest.mock("next/router", () => require("next-router-mock"));
 // };
 
 describe("writePage 테스트", () => {
-  beforeAll(async () => {
-    const client = new ApolloClient({
-      link: new HttpLink({
-        uri: "http://mock.com/graphql",
-        fetch,
-      }),
-      cache: new InMemoryCache(),
-    });
+  beforeEach(async () => {
+    await act(async () => {
+      const client = new ApolloClient({
+        link: new HttpLink({
+          uri: "http://mock.com/graphql",
+          fetch,
+        }),
+        cache: new InMemoryCache(),
+      });
 
-    render(
-      <RecoilRoot>
-        <ApolloProvider client={client}>
-          <WritePage />
-        </ApolloProvider>
-      </RecoilRoot>
-    );
+      render(
+        <RecoilRoot>
+          <ApolloProvider client={client}>
+            <WritePage />
+          </ApolloProvider>
+        </RecoilRoot>
+      );
+    });
   });
 
   it("상품명 입력 요소가 제대로 렌더링되었는지 확인", async () => {
