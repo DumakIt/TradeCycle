@@ -2,7 +2,7 @@ import { useWithAuth } from "../../src/components/commons/hooks/custom/useWithAu
 import UsedMarketWrite from "../../src/components/units/usedMarket/write/usedMarketWrite";
 
 export default function WritePage(): JSX.Element {
-  // useWithAuth();
+  useWithAuth();
 
   return <UsedMarketWrite isEdit={false} />;
 }

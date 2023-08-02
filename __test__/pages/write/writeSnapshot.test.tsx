@@ -10,6 +10,13 @@ import {
 } from "@apollo/client";
 import fetch from "cross-fetch";
 
+jest.mock("next/dynamic", () => () => {
+  const DynamicComponent = () => null;
+  DynamicComponent.displayName = "LoadableComponent";
+  DynamicComponent.preload = jest.fn();
+  return DynamicComponent;
+});
+
 it("write 페이지 snapshot 테스트", () => {
   const client = new ApolloClient({
     link: new HttpLink({

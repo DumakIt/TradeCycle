@@ -85,7 +85,6 @@ export default function UsedMarketWrite(
             )
           ) : (
             <S.CustomReactQuill
-              data-testid="input-contents"
               placeholder="상품을 설명해주세요."
               onChange={onChangeQuill}
             />

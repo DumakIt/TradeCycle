@@ -25,4 +25,17 @@ export const apis = [
       })
     );
   }),
+
+  gql.mutation("createUser", (req, res, ctx) => {
+    const { name, price } = req.variables.createUseditemInput;
+
+    return res(
+      ctx.data({
+        createUseditem: {
+          _id: "test",
+          __typename: "createUseditem",
+        },
+      })
+    );
+  }),
 ];

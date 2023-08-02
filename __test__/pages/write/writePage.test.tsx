@@ -1,13 +1,6 @@
-import {
-  act,
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot, useRecoilState } from "recoil";
-
 import WritePage from "../../../pages/write";
 import {
   ApolloClient,
@@ -20,61 +13,78 @@ import mockRouter from "next-router-mock";
 import { accessTokenState } from "../../../src/commons/stores";
 
 jest.mock("next/router", () => require("next-router-mock"));
+jest.mock("next/dynamic", () => () => {
+  const DynamicComponent = () => null;
+  DynamicComponent.displayName = "LoadableComponent";
+  DynamicComponent.preload = jest.fn();
+  return DynamicComponent;
+});
 
-// const TestComponent = () => {
-//   const [, setAccessToken] = useRecoilState(accessTokenState);
-//   setAccessToken("test-accessToken");
+const TestComponent = () => {
+  const [, setAccessToken] = useRecoilState(accessTokenState);
+  setAccessToken("test-accessToken");
 
-//   return <WritePage />;
-// };
+  return <WritePage />;
+};
 
 describe("writePage 테스트", () => {
-  beforeEach(async () => {
-    await act(async () => {
-      const client = new ApolloClient({
-        link: new HttpLink({
-          uri: "http://mock.com/graphql",
-          fetch,
-        }),
-        cache: new InMemoryCache(),
-      });
+  beforeEach(() => {
+    const client = new ApolloClient({
+      link: new HttpLink({
+        uri: "http://mock.com/graphql",
+        fetch,
+      }),
+      cache: new InMemoryCache(),
+    });
 
-      render(
-        <RecoilRoot>
-          <ApolloProvider client={client}>
-            <WritePage />
-          </ApolloProvider>
-        </RecoilRoot>
-      );
+    render(
+      <RecoilRoot>
+        <ApolloProvider client={client}>
+          <TestComponent />
+        </ApolloProvider>
+      </RecoilRoot>
+    );
+  });
+
+  it("유효하지 않은 폼 - 미입력", async () => {
+    await waitFor(() => {
+      fireEvent.click(screen.getByTestId("btn-submit"));
+
+      expect(screen.getByText("상품명을 작성해주세요.")).toBeInTheDocument();
+      expect(screen.getByText("상품설명을 작성해주세요.")).toBeInTheDocument();
+      expect(screen.getByText("숫자만 작성해주세요.")).toBeInTheDocument();
     });
   });
 
-  it("상품명 입력 요소가 제대로 렌더링되었는지 확인", async () => {
-    const inputTitle = screen.getByTestId("input-title");
-    expect(inputTitle).toBeInTheDocument();
+  it("유효하지 않은 폼 - 숫자 외 다른 문자", async () => {
+    await waitFor(() => {
+      fireEvent.change(screen.getByTestId("input-price"), {
+        target: { value: "abcdef" },
+      });
+
+      expect(screen.getByText("숫자만 작성해주세요.")).toBeInTheDocument();
+    });
+  });
+
+  it("유효하지 않은 폼 - 음수", async () => {
+    await waitFor(() => {
+      fireEvent.change(screen.getByTestId("input-price"), {
+        target: { value: "-10" },
+      });
+
+      expect(screen.getByText("잘못된 가격입니다.")).toBeInTheDocument();
+    });
+  });
+
+  it("유효하지 않은 폼 - 최대 금액 초과", async () => {
+    await waitFor(() => {
+      fireEvent.change(screen.getByTestId("input-price"), {
+        target: { value: "10000001" },
+      });
+
+      expect(
+        screen.getByText("등록할 수 있는 최대 금액을 초과하였습니다.")
+      ).toBeInTheDocument();
+    });
   });
 });
-
-// describe("UsedMarketWrite 컴포넌트 테스트", () => {
-//   it("상품명 입력 요소가 제대로 렌더링되었는지 확인", () => {
-//     const client = new ApolloClient({
-//       link: new HttpLink({
-//         uri: "http://mock.com/graphql",
-//         fetch,
-//       }),
-//       cache: new InMemoryCache(),
-//     });
-
-//     render(
-//       <RecoilRoot>
-//         <ApolloProvider client={client}>
-//           <WritePage />
-//         </ApolloProvider>
-//       </RecoilRoot>
-//     );
-
-//     // input 요소를 data-testid 속성으로 찾아서 존재하는지 확인
-//     const inputTitle = screen.getByTestId("input-title");
-//     expect(inputTitle).toBeInTheDocument();
-//   });
-// });
