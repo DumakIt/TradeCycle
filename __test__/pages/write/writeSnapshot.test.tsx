@@ -10,12 +10,22 @@ import {
 } from "@apollo/client";
 import fetch from "cross-fetch";
 
-jest.mock("next/dynamic", () => () => {
-  const DynamicComponent = () => null;
-  DynamicComponent.displayName = "LoadableComponent";
-  DynamicComponent.preload = jest.fn();
-  return DynamicComponent;
-});
+interface IReactQuill {
+  placeholder: string;
+  onChange: (value: string) => void;
+}
+
+jest.mock("react-quill", () => ({
+  __esModule: true,
+  default: ({ placeholder, onChange }: IReactQuill) => (
+    <input
+      type="text"
+      data-testid="input-contents"
+      placeholder={placeholder}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  ),
+}));
 
 it("write 페이지 snapshot 테스트", () => {
   const client = new ApolloClient({

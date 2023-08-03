@@ -11,18 +11,31 @@ import {
 import fetch from "cross-fetch";
 import mockRouter from "next-router-mock";
 import { accessTokenState } from "../../../src/commons/stores";
+import { useEffect } from "react";
+
+interface IReactQuill {
+  placeholder: string;
+  onChange: (value: string) => void;
+}
 
 jest.mock("next/router", () => require("next-router-mock"));
-jest.mock("next/dynamic", () => () => {
-  const DynamicComponent = () => null;
-  DynamicComponent.displayName = "LoadableComponent";
-  DynamicComponent.preload = jest.fn();
-  return DynamicComponent;
-});
+jest.mock("react-quill", () => ({
+  __esModule: true,
+  default: ({ placeholder, onChange }: IReactQuill) => (
+    <input
+      type="text"
+      data-testid="input-contents"
+      placeholder={placeholder}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  ),
+}));
 
 const TestComponent = () => {
   const [, setAccessToken] = useRecoilState(accessTokenState);
-  setAccessToken("test-accessToken");
+  useEffect(() => {
+    setAccessToken("test-accessToken");
+  }, []);
 
   return <WritePage />;
 };
@@ -85,6 +98,32 @@ describe("writePage 테스트", () => {
       expect(
         screen.getByText("등록할 수 있는 최대 금액을 초과하였습니다.")
       ).toBeInTheDocument();
+    });
+  });
+
+  it("유효한 폼", async () => {
+    fireEvent.change(screen.getByTestId("input-title"), {
+      target: { value: "테스트 상품명" },
+    });
+    fireEvent.change(screen.getByTestId("input-contents"), {
+      target: { value: "테스트 상품내용" },
+    });
+    fireEvent.change(screen.getByTestId("input-price"), {
+      target: { value: 10000 },
+    });
+
+    fireEvent.click(screen.getByTestId("btn-submit"));
+
+    await waitFor(() => {
+      expect(mockRouter.asPath).toEqual("/test");
+    });
+  });
+
+  it("취소 버튼 클릭", async () => {
+    fireEvent.click(screen.getByTestId("btn-cancel"));
+
+    await waitFor(() => {
+      expect(mockRouter.asPath).toEqual("/list");
     });
   });
 });
