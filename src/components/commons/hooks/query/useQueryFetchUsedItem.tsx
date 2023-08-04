@@ -9,12 +9,9 @@ export const FETCH_USED_ITEM = gql`
     fetchUseditem(useditemId: $useditemId) {
       _id
       name
-      remarks
       contents
       price
       images
-      pickedCount
-      tags
       seller {
         _id
         name
@@ -24,7 +21,6 @@ export const FETCH_USED_ITEM = gql`
         lat
         lng
       }
-      createdAt
     }
   }
 `;

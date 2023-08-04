@@ -8,6 +8,7 @@ import * as S from "./usedMarketDetailStyles";
 export default function UsedMarketDetail(): JSX.Element {
   const { id } = useRouterIdCheck("detail");
   const { data } = useQueryFetchUsedItem({ useditemId: id });
+
   return (
     <>
       <DetailHeader data={data?.fetchUseditem} id={id} />

@@ -26,14 +26,36 @@ export const apis = [
     );
   }),
 
-  gql.mutation("createUseditem", (req, res, ctx) => {
-    const { name, price } = req.variables.createUseditemInput;
-
+  gql.mutation("createUseditem", (_, res, ctx) => {
     return res(
       ctx.data({
         createUseditem: {
           _id: "test",
           __typename: "createUseditem",
+        },
+      })
+    );
+  }),
+
+  gql.query("fetchUseditem", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        fetchUseditem: {
+          _id: "test-item",
+          name: "테스트 상품명",
+          contents: "테스트 상품내용",
+          price: 10000,
+          images: [""],
+          seller: {
+            _id: "test-seller",
+            name: "테스트 판매자",
+            picture: null,
+          },
+          useditemAddress: {
+            lat: "37.56682195069747",
+            lng: "126.97865508922976",
+          },
+          __typename: "fetchUseditem",
         },
       })
     );
