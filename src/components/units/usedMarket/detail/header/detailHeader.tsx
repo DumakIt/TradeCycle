@@ -36,8 +36,12 @@ export default function DetailHeader(props: IDetailHeaderProps): JSX.Element {
         <S.FuncBtnBox>
           {loggedInUser._id === props.data?.seller?._id && (
             <>
-              <S.ItemBtnUpdate onClick={onClickMovePage(`/${props.id}/edit`)} />
+              <S.ItemBtnUpdate
+                data-testid="btn-update"
+                onClick={onClickMovePage(`/${props.id}/edit`)}
+              />
               <S.ItemBtnDelete
+                data-testid="btn-delete"
                 onClick={() => {
                   void deleteUsedItem({ useditemId: props.id })();
                 }}

@@ -37,6 +37,34 @@ export const apis = [
     );
   }),
 
+  gql.mutation("deleteUseditem", (req, res, ctx) => {
+    const { useditemId } = req.variables;
+    if (useditemId === "test-item")
+      return res(
+        ctx.data({
+          deleteUseditem: "test-item",
+        })
+      );
+  }),
+
+  gql.query("fetchUseditems", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        fetchUseditems: [
+          {
+            _id: "test-item",
+            name: "테스트 상품명",
+            createdAt: "2023-08-05T11:52:08.143Z",
+            price: 10000,
+            images: [""],
+            tags: [""],
+            __typename: "fetchUseditems",
+          },
+        ],
+      })
+    );
+  }),
+
   gql.query("fetchUseditem", (_, res, ctx) => {
     return res(
       ctx.data({
@@ -76,6 +104,29 @@ export const apis = [
               },
               createdAt: "2023-08-05T11:52:08.143Z",
               __typename: "fetchUseditemQuestions",
+            },
+          ],
+        })
+      );
+    }
+  }),
+
+  gql.query("fetchUseditemQuestionAnswers", (req, res, ctx) => {
+    const { useditemQuestionId } = req.variables;
+    if (useditemQuestionId === "test-questions") {
+      return res(
+        ctx.data({
+          fetchUseditemQuestionAnswers: [
+            {
+              _id: "test-answers",
+              contents: "테스트 답글",
+              user: {
+                _id: "test-answersUser",
+                name: "테스트 답글유저",
+                picture: null,
+              },
+              createdAt: "2023-08-06T11:52:08.143Z",
+              __typename: "fetchUseditemQuestionAnswers",
             },
           ],
         })

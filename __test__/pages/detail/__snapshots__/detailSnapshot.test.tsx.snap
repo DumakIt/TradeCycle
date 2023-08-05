@@ -21,6 +21,7 @@ exports[`detail 페이지 snapshot 테스트 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit css-eg37wo"
+          data-testid="btn-update"
           role="img"
           tabindex="-1"
         >
@@ -41,6 +42,7 @@ exports[`detail 페이지 snapshot 테스트 1`] = `
         <span
           aria-label="close"
           class="anticon anticon-close css-h3gfdb"
+          data-testid="btn-delete"
           role="img"
           tabindex="-1"
         >
