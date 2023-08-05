@@ -115,7 +115,7 @@ describe("writePage 테스트", () => {
     fireEvent.click(screen.getByTestId("btn-submit"));
 
     await waitFor(() => {
-      expect(mockRouter.asPath).toEqual("/test");
+      expect(mockRouter.asPath).toEqual("/test-item");
     });
   });
 
