@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { act, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot } from "recoil";
 import ListPage from "../../../pages/list";
@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 import fetch from "cross-fetch";
 
-it("list 페이지 snapshot 테스트", () => {
+it("list 페이지 snapshot 테스트", async () => {
   const client = new ApolloClient({
     link: new HttpLink({
       uri: "http://mock.com/graphql",
@@ -18,13 +18,14 @@ it("list 페이지 snapshot 테스트", () => {
     }),
     cache: new InMemoryCache(),
   });
-
-  const result = render(
-    <RecoilRoot>
-      <ApolloProvider client={client}>
-        <ListPage />
-      </ApolloProvider>
-    </RecoilRoot>
-  );
-  expect(result.container).toMatchSnapshot();
+  await act(async () => {
+    const result = render(
+      <RecoilRoot>
+        <ApolloProvider client={client}>
+          <ListPage />
+        </ApolloProvider>
+      </RecoilRoot>
+    );
+    expect(result.container).toMatchSnapshot();
+  });
 });

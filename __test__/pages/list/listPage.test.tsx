@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot } from "recoil";
 import ListPage from "../../../pages/list";
@@ -14,7 +20,7 @@ import mockRouter from "next-router-mock";
 jest.mock("next/router", () => require("next-router-mock"));
 
 describe("listPage 테스트", () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     const client = new ApolloClient({
       link: new HttpLink({
         uri: "http://mock.com/graphql",
@@ -23,13 +29,15 @@ describe("listPage 테스트", () => {
       cache: new InMemoryCache(),
     });
 
-    render(
-      <RecoilRoot>
-        <ApolloProvider client={client}>
-          <ListPage />
-        </ApolloProvider>
-      </RecoilRoot>
-    );
+    await act(async () => {
+      render(
+        <RecoilRoot>
+          <ApolloProvider client={client}>
+            <ListPage />
+          </ApolloProvider>
+        </RecoilRoot>
+      );
+    });
   });
 
   it("상품등록 버튼 클릭", async () => {

@@ -39,12 +39,14 @@ export const apis = [
 
   gql.mutation("deleteUseditem", (req, res, ctx) => {
     const { useditemId } = req.variables;
-    if (useditemId === "test-item")
+    if (useditemId === "test-item") {
       return res(
         ctx.data({
           deleteUseditem: "test-item",
         })
       );
+    }
+    return res(ctx.data(undefined));
   }),
 
   gql.query("fetchUseditems", (_, res, ctx) => {
@@ -109,6 +111,7 @@ export const apis = [
         })
       );
     }
+    return res(ctx.data(undefined));
   }),
 
   gql.query("fetchUseditemQuestionAnswers", (req, res, ctx) => {
@@ -132,5 +135,6 @@ export const apis = [
         })
       );
     }
+    return res(ctx.data(undefined));
   }),
 ];

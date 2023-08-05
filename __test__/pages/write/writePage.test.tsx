@@ -1,4 +1,10 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import {
+  act,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { RecoilRoot, useRecoilState } from "recoil";
 import WritePage from "../../../pages/write";
@@ -41,7 +47,7 @@ const TestComponent = () => {
 };
 
 describe("writePage 테스트", () => {
-  beforeEach(() => {
+  beforeEach(async () => {
     const client = new ApolloClient({
       link: new HttpLink({
         uri: "http://mock.com/graphql",
@@ -50,13 +56,15 @@ describe("writePage 테스트", () => {
       cache: new InMemoryCache(),
     });
 
-    render(
-      <RecoilRoot>
-        <ApolloProvider client={client}>
-          <TestComponent />
-        </ApolloProvider>
-      </RecoilRoot>
-    );
+    await act(async () => {
+      render(
+        <RecoilRoot>
+          <ApolloProvider client={client}>
+            <TestComponent />
+          </ApolloProvider>
+        </RecoilRoot>
+      );
+    });
   });
 
   it("유효하지 않은 폼 - 미입력", async () => {
