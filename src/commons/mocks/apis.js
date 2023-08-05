@@ -30,7 +30,7 @@ export const apis = [
     return res(
       ctx.data({
         createUseditem: {
-          _id: "test",
+          _id: "test-item",
           __typename: "createUseditem",
         },
       })
@@ -59,5 +59,27 @@ export const apis = [
         },
       })
     );
+  }),
+
+  gql.query("fetchUseditemQuestions", (req, res, ctx) => {
+    const { useditemId } = req.variables;
+    if (useditemId === "test-item") {
+      return res(
+        ctx.data({
+          fetchUseditemQuestions: [
+            {
+              _id: "test-questions",
+              contents: "테스트 댓글",
+              user: {
+                _id: "test-questionsUser",
+                name: "테스트 댓글유저",
+              },
+              createdAt: "2023-08-05T11:52:08.143Z",
+              __typename: "fetchUseditemQuestions",
+            },
+          ],
+        })
+      );
+    }
   }),
 ];

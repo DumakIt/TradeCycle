@@ -9,10 +9,13 @@ import {
   InMemoryCache,
 } from "@apollo/client";
 import fetch from "cross-fetch";
+import mockRouter from "next-router-mock";
 
 jest.mock("next/router", () => require("next-router-mock"));
 
 it("detail 페이지 snapshot 테스트", async () => {
+  mockRouter.setCurrentUrl("/[detail]", { query: { detail: "test-item" } });
+
   const client = new ApolloClient({
     link: new HttpLink({
       uri: "http://mock.com/graphql",

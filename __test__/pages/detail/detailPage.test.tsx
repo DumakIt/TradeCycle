@@ -32,7 +32,7 @@ const TestComponent = () => {
 
 describe("detailPage 테스트", () => {
   beforeEach(async () => {
-    mockRouter.setCurrentUrl("/[detail]", { query: { detail: "test" } });
+    mockRouter.setCurrentUrl("/[detail]", { query: { detail: "test-item" } });
 
     const client = new ApolloClient({
       link: new HttpLink({
@@ -58,6 +58,14 @@ describe("detailPage 테스트", () => {
       expect(screen.getByText("테스트 상품내용")).toBeInTheDocument();
       expect(screen.getByText("10,000")).toBeInTheDocument();
       expect(screen.getByText("테스트 판매자")).toBeInTheDocument();
+    });
+  });
+
+  it("useQueryFetchUsedItemQuestions 렌더링", async () => {
+    await waitFor(() => {
+      expect(screen.getByText("테스트 댓글유저")).toBeInTheDocument();
+      expect(screen.getByText("테스트 댓글")).toBeInTheDocument();
+      expect(screen.getByText("2023.08.05")).toBeInTheDocument();
     });
   });
 });
