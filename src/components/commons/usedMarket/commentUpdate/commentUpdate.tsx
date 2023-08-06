@@ -52,14 +52,21 @@ export default function CommentUpdate(
     >
       <S.CommentTextareaWrapper>
         <textarea
+          data-testid="textarea-comment-update-contents"
           defaultValue={props.data.contents}
           {...props.register("UpdateComment")}
         />
         <S.CommentUpdateBtnWrapper>
-          <S.CommentUpdateCanCel type="button" onClick={onClickUpdateCanCel}>
+          <S.CommentUpdateCanCel
+            type="button"
+            data-testid="btn-comment-update-cancel"
+            onClick={onClickUpdateCanCel}
+          >
             취소하기
           </S.CommentUpdateCanCel>
-          <S.CommentUpdateSubmit>수정하기</S.CommentUpdateSubmit>
+          <S.CommentUpdateSubmit data-testid="btn-comment-update-finish">
+            수정하기
+          </S.CommentUpdateSubmit>
         </S.CommentUpdateBtnWrapper>
       </S.CommentTextareaWrapper>
     </form>

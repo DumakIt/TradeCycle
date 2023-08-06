@@ -74,7 +74,9 @@ exports[`detail 페이지 snapshot 테스트 1`] = `
       <div
         class="css-1omltoe"
       >
-        <button>
+        <button
+          data-testid="btn-buy"
+        >
           구매하기
         </button>
       </div>
@@ -142,10 +144,12 @@ exports[`detail 페이지 snapshot 테스트 1`] = `
           class="css-1eephp8"
         >
           <textarea
+            data-testid="textarea-comment-contents"
             name="contents"
           />
           <button
             class="css-1an7oxl"
+            data-testid="btn-comment-write"
           >
             작성하기
           </button>

@@ -52,8 +52,13 @@ export default function DetailAside(props: IDetailAsideProps): JSX.Element {
         )}
       >
         <S.CommentTextareaWrapper>
-          <textarea {...register("contents")} />
-          <S.CommentWriteBtn>작성하기</S.CommentWriteBtn>
+          <textarea
+            data-testid="textarea-comment-contents"
+            {...register("contents")}
+          />
+          <S.CommentWriteBtn data-testid="btn-comment-write">
+            작성하기
+          </S.CommentWriteBtn>
         </S.CommentTextareaWrapper>
       </form>
       <S.CommentsContainer>

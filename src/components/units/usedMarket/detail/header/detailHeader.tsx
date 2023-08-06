@@ -58,6 +58,7 @@ export default function DetailHeader(props: IDetailHeaderProps): JSX.Element {
 
         <S.BuyBtnBox>
           <button
+            data-testid="btn-buy"
             onClick={() => {
               void createPointTransactionOfBuyingAndSelling({
                 useritemId: props.id,

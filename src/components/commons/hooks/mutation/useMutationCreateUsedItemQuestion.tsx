@@ -17,11 +17,6 @@ const CREATE_USED_ITEM_QUESTION = gql`
       useditemId: $useditemId
     ) {
       _id
-      contents
-      user {
-        name
-      }
-      createdAt
     }
   }
 `;

@@ -53,8 +53,13 @@ export default function Reply(props: IReplyProps): JSX.Element {
         >
           <S.ReplyEnter />
           <S.ReplyWriteTextareaWrapper>
-            <textarea {...register("contents")} />
-            <S.ReplyWriteSubmit>작성하기</S.ReplyWriteSubmit>
+            <textarea
+              data-testid="textarea-reply-contents"
+              {...register("contents")}
+            />
+            <S.ReplyWriteSubmit data-testid="btn-reply-write">
+              작성하기
+            </S.ReplyWriteSubmit>
           </S.ReplyWriteTextareaWrapper>
         </S.ReplyWriteWrapper>
       )}
@@ -87,10 +92,12 @@ export default function Reply(props: IReplyProps): JSX.Element {
                   {loggedInUser._id === el.user._id && (
                     <div>
                       <S.ReplyUpdateIcon
+                        data-testid="btn-reply-update"
                         id={el._id + "ReplyUpdate"}
                         onClick={onClickReplyUpdate}
                       />
                       <S.ReplyDeleteIcon
+                        data-testid="btn-reply-delete"
                         onClick={deleteUsedItemQuestionAnswer({
                           useditemQuestionId: props.id,
                           useditemQuestionAnswerId: el._id,
@@ -99,7 +106,9 @@ export default function Reply(props: IReplyProps): JSX.Element {
                     </div>
                   )}
                 </div>
-                <S.ReplyContents>{el.contents}</S.ReplyContents>
+                <S.ReplyContents data-testid="reply-contents">
+                  {el.contents}
+                </S.ReplyContents>
               </S.ReplyDetailContainer>
             </S.ReplyContainer>
           ) : (

@@ -37,16 +37,78 @@ export const apis = [
     );
   }),
 
-  gql.mutation("deleteUseditem", (req, res, ctx) => {
-    const { useditemId } = req.variables;
-    if (useditemId === "test-item") {
-      return res(
-        ctx.data({
-          deleteUseditem: "test-item",
-        })
-      );
-    }
-    return res(ctx.data(undefined));
+  gql.mutation("deleteUseditem", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        deleteUseditem: "test-item",
+      })
+    );
+  }),
+
+  gql.mutation("createPointTransactionOfBuyingAndSelling", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        createPointTransactionOfBuyingAndSelling: {
+          _id: "test-item",
+        },
+      })
+    );
+  }),
+
+  gql.mutation("createUseditemQuestion", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        createUseditemQuestion: {
+          _id: "test-questions",
+        },
+      })
+    );
+  }),
+
+  gql.mutation("createUseditemQuestionAnswer", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        createUseditemQuestionAnswer: {
+          _id: "test-answers",
+        },
+      })
+    );
+  }),
+
+  gql.mutation("updateUseditemQuestion", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        updateUseditemQuestion: {
+          _id: "test-questions",
+        },
+      })
+    );
+  }),
+
+  gql.mutation("updateUseditemQuestionAnswer", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        updateUseditemQuestionAnswer: {
+          _id: "test-answers",
+        },
+      })
+    );
+  }),
+
+  gql.mutation("deleteUseditemQuestion", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        deleteUseditemQuestion: "test-questions",
+      })
+    );
+  }),
+
+  gql.mutation("deleteUseditemQuestionAnswer", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        deleteUseditemQuestionAnswer: "test-answers",
+      })
+    );
   }),
 
   gql.query("fetchUseditems", (_, res, ctx) => {
@@ -77,7 +139,7 @@ export const apis = [
           price: 10000,
           images: [""],
           seller: {
-            _id: "test-seller",
+            _id: "test-user",
             name: "테스트 판매자",
             picture: null,
           },
@@ -91,50 +153,42 @@ export const apis = [
     );
   }),
 
-  gql.query("fetchUseditemQuestions", (req, res, ctx) => {
-    const { useditemId } = req.variables;
-    if (useditemId === "test-item") {
-      return res(
-        ctx.data({
-          fetchUseditemQuestions: [
-            {
-              _id: "test-questions",
-              contents: "테스트 댓글",
-              user: {
-                _id: "test-questionsUser",
-                name: "테스트 댓글유저",
-              },
-              createdAt: "2023-08-05T11:52:08.143Z",
-              __typename: "fetchUseditemQuestions",
+  gql.query("fetchUseditemQuestions", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        fetchUseditemQuestions: [
+          {
+            _id: "test-questions",
+            contents: "테스트 댓글",
+            user: {
+              _id: "test-user",
+              name: "테스트 댓글유저",
             },
-          ],
-        })
-      );
-    }
-    return res(ctx.data(undefined));
+            createdAt: "2023-08-05T11:52:08.143Z",
+            __typename: "fetchUseditemQuestions",
+          },
+        ],
+      })
+    );
   }),
 
-  gql.query("fetchUseditemQuestionAnswers", (req, res, ctx) => {
-    const { useditemQuestionId } = req.variables;
-    if (useditemQuestionId === "test-questions") {
-      return res(
-        ctx.data({
-          fetchUseditemQuestionAnswers: [
-            {
-              _id: "test-answers",
-              contents: "테스트 답글",
-              user: {
-                _id: "test-answersUser",
-                name: "테스트 답글유저",
-                picture: null,
-              },
-              createdAt: "2023-08-06T11:52:08.143Z",
-              __typename: "fetchUseditemQuestionAnswers",
+  gql.query("fetchUseditemQuestionAnswers", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        fetchUseditemQuestionAnswers: [
+          {
+            _id: "test-answers",
+            contents: "테스트 답글",
+            user: {
+              _id: "test-user",
+              name: "테스트 답글유저",
+              picture: null,
             },
-          ],
-        })
-      );
-    }
-    return res(ctx.data(undefined));
+            createdAt: "2023-08-06T11:52:08.143Z",
+            __typename: "fetchUseditemQuestionAnswers",
+          },
+        ],
+      })
+    );
   }),
 ];

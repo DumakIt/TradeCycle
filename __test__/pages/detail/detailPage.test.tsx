@@ -29,7 +29,7 @@ const TestComponent = () => {
   const [, setLoggedInUserState] = useRecoilState(loggedInUserState);
   useEffect(() => {
     setAccessToken("test-accessToken");
-    setLoggedInUserState({ _id: "test-seller" });
+    setLoggedInUserState({ _id: "test-user" });
   }, []);
 
   return <DetailPage />;
@@ -82,7 +82,7 @@ describe("detailPage 테스트", () => {
     });
   });
 
-  it("수정 버튼 클릭", async () => {
+  it("상품 수정 버튼 클릭", async () => {
     fireEvent.click(screen.getByTestId("btn-update"));
 
     await waitFor(() => {
@@ -90,11 +90,104 @@ describe("detailPage 테스트", () => {
     });
   });
 
-  it("삭제 버튼 클릭", async () => {
+  it("상품 삭제 버튼 클릭", async () => {
     fireEvent.click(screen.getByTestId("btn-delete"));
 
     await waitFor(() => {
       expect(mockRouter.asPath).toEqual("/list");
     });
+  });
+
+  it("상품 구매 버튼 클릭", async () => {
+    fireEvent.click(screen.getByTestId("btn-buy"));
+
+    await waitFor(() => {
+      expect(mockRouter.asPath).toEqual("/list");
+    });
+  });
+
+  it("댓글 작성", async () => {
+    fireEvent.change(screen.getByTestId("textarea-comment-contents"), {
+      target: { value: "테스트 댓글" },
+    });
+
+    fireEvent.click(screen.getByTestId("btn-comment-write"));
+
+    await waitFor(() => {
+      expect(screen.getByText("테스트 댓글")).toBeInTheDocument();
+    });
+  });
+
+  it("답글 작성", async () => {
+    fireEvent.click(screen.getByTestId("comment-contents"));
+
+    fireEvent.change(screen.getByTestId("textarea-reply-contents"), {
+      target: { value: "테스트 답글" },
+    });
+
+    fireEvent.click(screen.getByTestId("btn-reply-write"));
+
+    await waitFor(() => {
+      expect(screen.getByText("테스트 답글")).toBeInTheDocument();
+    });
+  });
+
+  it("댓글 수정 - 취소", async () => {
+    fireEvent.click(screen.getByTestId("btn-comment-update"));
+
+    fireEvent.change(screen.getByTestId("textarea-comment-update-contents"), {
+      target: { value: "테스트 댓글 수정" },
+    });
+
+    fireEvent.click(screen.getByTestId("btn-comment-update-cancel"));
+
+    expect(screen.getByTestId("comment-contents").textContent).toBe(
+      "테스트 댓글"
+    );
+  });
+
+  it("댓글 수정", async () => {
+    fireEvent.click(screen.getByTestId("btn-comment-update"));
+
+    fireEvent.change(screen.getByTestId("textarea-comment-update-contents"), {
+      target: { value: "테스트 댓글 수정" },
+    });
+
+    await waitFor(() => {
+      fireEvent.click(screen.getByTestId("btn-comment-update-finish"));
+    });
+  });
+
+  it("답글 수정 - 취소", async () => {
+    fireEvent.click(screen.getByTestId("btn-reply-update"));
+
+    fireEvent.change(screen.getByTestId("textarea-reply-update-contents"), {
+      target: { value: "테스트 답글 수정" },
+    });
+
+    fireEvent.click(screen.getByTestId("btn-reply-update-cancel"));
+
+    expect(screen.getByTestId("reply-contents").textContent).toBe(
+      "테스트 답글"
+    );
+  });
+
+  it("답글 수정", async () => {
+    fireEvent.click(screen.getByTestId("btn-reply-update"));
+
+    fireEvent.change(screen.getByTestId("textarea-reply-update-contents"), {
+      target: { value: "테스트 답글 수정" },
+    });
+    await waitFor(() => {
+      fireEvent.click(screen.getByTestId("btn-reply-update-finish"));
+    });
+  });
+
+  it("댓글 삭제 버튼 클릭", async () => {
+    fireEvent.click(screen.getByTestId("btn-comment-delete"));
+  });
+
+  it("답글 삭제 버튼 클릭", async () => {
+    fireEvent.click(screen.getByTestId("btn-reply-delete"));
   });
 });

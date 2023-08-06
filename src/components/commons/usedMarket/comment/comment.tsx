@@ -51,10 +51,12 @@ export default function Comment(props: IDetailCommentProps): JSX.Element {
         {loggedInUser._id === props.data.user._id && (
           <div>
             <S.CommentUpdateIcon
+              data-testid="btn-comment-update"
               id={props.data._id}
               onClick={onClickCommentUpdate(props.data.contents)}
             />
             <S.CommentDeleteIcon
+              data-testid="btn-comment-delete"
               onClick={deleteUsedItemQuestion({
                 useditemQuestionId: props.data._id,
                 useditemId: props.id,
@@ -65,6 +67,7 @@ export default function Comment(props: IDetailCommentProps): JSX.Element {
       </S.CommentWriterInfoContainer>
 
       <S.CommentContents
+        data-testid="comment-contents"
         id={props.data._id + "ReplyWrite"}
         onClick={props.onClickIsActive}
       >

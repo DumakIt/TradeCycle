@@ -37,14 +37,21 @@ export default function ReplyUpdate(props: IReplyUpdateProps): JSX.Element {
       <S.ReplyEnter />
       <S.CommentTextareaWrapper>
         <textarea
+          data-testid="textarea-reply-update-contents"
           defaultValue={props.data.contents}
           {...register("UpdateReply")}
         />
         <S.CommentUpdateBtnWrapper>
-          <S.CommentUpdateCanCel type="button" onClick={onClickUpdateCanCel}>
+          <S.CommentUpdateCanCel
+            type="button"
+            data-testid="btn-reply-update-cancel"
+            onClick={onClickUpdateCanCel}
+          >
             취소하기
           </S.CommentUpdateCanCel>
-          <S.CommentUpdateSubmit>수정하기</S.CommentUpdateSubmit>
+          <S.CommentUpdateSubmit data-testid="btn-reply-update-finish">
+            수정하기
+          </S.CommentUpdateSubmit>
         </S.CommentUpdateBtnWrapper>
       </S.CommentTextareaWrapper>
     </S.ReplyWriteWrapper>
