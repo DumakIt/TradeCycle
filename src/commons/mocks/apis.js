@@ -37,6 +37,17 @@ export const apis = [
     );
   }),
 
+  gql.mutation("updateUseditem", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        updateUseditem: {
+          _id: "test-item",
+          __typename: "updateUseditem",
+        },
+      })
+    );
+  }),
+
   gql.mutation("deleteUseditem", (_, res, ctx) => {
     return res(
       ctx.data({

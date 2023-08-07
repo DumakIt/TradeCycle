@@ -131,7 +131,7 @@ export default function UsedMarketWrite(
             type="button"
             onClick={
               props.isEdit
-                ? onClickMovePage(`/${props.id ?? ""}/`)
+                ? onClickMovePage(`/${props.id ?? ""}`)
                 : onClickMovePage("/list")
             }
           >

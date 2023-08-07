@@ -3,7 +3,7 @@ import { useWithAuth } from "../../../src/components/commons/hooks/custom/useWit
 import { useQueryFetchUsedItem } from "../../../src/components/commons/hooks/query/useQueryFetchUsedItem";
 import UsedMarketWrite from "../../../src/components/units/usedMarket/write/usedMarketWrite";
 
-export default function editPage(): JSX.Element {
+export default function EditPage(): JSX.Element {
   useWithAuth();
   const { id } = useRouterIdCheck("detail");
   const { data } = useQueryFetchUsedItem({ useditemId: id });
