@@ -11,7 +11,7 @@ const RESTORE_ACCESS_TOKEN = gql`
 
 export const getNewAccessToken = async (): Promise<string | undefined> => {
   try {
-    const graphQLClient = new GraphQLClient("http://34.22.85.43:4000/graphql", {
+    const graphQLClient = new GraphQLClient("https://da-market.store/graphql", {
       credentials: "include",
     });
     const result = await graphQLClient.request<
