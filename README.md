@@ -1,5 +1,5 @@
 ## Installation
-
+현재는 서버 기능 수정으로 서비스 배포가 잠시중단된 상태입니다.
 ```bash
   yarn install
 ```
