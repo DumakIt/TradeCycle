@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Container = styled.div`
   margin: 0 auto;
   max-width: 1600px;
+  min-width: 650px;
 `;
 
 export const GrayWrapper = styled.div`
@@ -13,19 +14,40 @@ export const GrayWrapper = styled.div`
   height: 800px;
   padding: 0 60px 0 140px;
   background: #f9f9f9;
+
+  & > div {
+    min-width: 405px;
+
+    @media (max-width: 1023px) {
+      min-width: 250px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    padding: 0 10px 0 50px;
+    height: 400px;
+  }
 `;
 
 export const Title = styled.h1`
   font-size: 64px;
+
+  @media (max-width: 1023px) {
+    font-size: 38px;
+  }
 `;
 
 export const Text = styled.p`
   padding-top: 36px;
   font-size: 18px;
+
+  @media (max-width: 1023px) {
+    font-size: 16px;
+  }
 `;
 
 export const FirstSecondImg = styled.img`
-  width: 850px;
+  width: 55%;
   object-fit: contain;
 `;
 
@@ -37,12 +59,29 @@ export const WhiteWrapper = styled.div`
   height: 800px;
   padding: 0 140px 0 60px;
   background: #ffffff;
+
+  & > div {
+    min-width: 460px;
+
+    @media (max-width: 1023px) {
+      min-width: 300px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    padding: 0 50px 0 0px;
+    height: 400px;
+  }
 `;
 
 export const ThirdImg = styled.img`
-  width: 600px;
-  margin-right: 130px;
+  width: 45%;
+  margin-right: 110px;
   object-fit: contain;
+
+  @media (max-width: 1023px) {
+    margin-right: 10px;
+  }
 `;
 
 export const ListBtn = styled.a`
