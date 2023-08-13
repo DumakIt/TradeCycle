@@ -1,15 +1,15 @@
 import * as S from "./detailAsideStyles";
 import { useForm } from "react-hook-form";
 import InfiniteScroll from "react-infinite-scroller";
-import Comment from "../../../../commons/usedMarket/comment/comment";
+import Comment from "./comment/comment";
 import { wrapAsync } from "../../../../commons/utility/asyncFunc";
 import { v4 as uuidv4 } from "uuid";
 import { IUseditem } from "../../../../../commons/types/generated/types";
 import { useSetIsActive } from "../../../../commons/hooks/custom/useSetIsActive";
 import { useMutationCreateUsedItemQuestion } from "../../../../commons/hooks/mutation/useMutationCreateUsedItemQuestion";
 import { useQueryFetchUsedItemQuestions } from "../../../../commons/hooks/query/useQueryFetchUsedItemQuestions";
-import CommentUpdate from "../../../../commons/usedMarket/commentUpdate/commentUpdate";
-import Reply from "../../../../commons/usedMarket/reply/reply";
+import CommentUpdate from "./commentUpdate/commentUpdate";
+import Reply from "./reply/reply";
 
 interface IDetailAsideProps {
   data: IUseditem | undefined;

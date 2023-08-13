@@ -5,7 +5,7 @@ import { useSearch } from "../../hooks/custom/useSearch";
 import { useSetIsToggle } from "../../hooks/custom/useSetIsToggle";
 import { useMutationLogoutUser } from "../../hooks/mutation/useMutationLogoutUser";
 import { useQueryFetchUserLoggedIn } from "../../hooks/query/useQueryFetchUserLoggedIn";
-import PointChargeModal from "../../usedMarket/pointChargeModal/pointChargeModal";
+import PointChargeModal from "../../modal/pointChargeModal/pointChargeModal";
 import * as S from "./usedMarketLayoutStyles";
 
 export default function UsedMarketLayout(): JSX.Element {

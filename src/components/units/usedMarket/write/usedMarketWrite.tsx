@@ -14,8 +14,8 @@ import {
 import { useEffectSetFormData } from "../../../commons/hooks/custom/useEffectSetFormData";
 import { wrapAsync } from "../../../commons/utility/asyncFunc";
 import { v4 as uuidv4 } from "uuid";
-import KakaoMapWrite from "../../../commons/usedMarket/kakaoMapWrite/kakaoMapWrite";
-import ImgUpload from "../../../commons/usedMarket/imgUpload/imgUpload";
+import KakaoMapWrite from "./kakaoMapWrite/kakaoMapWrite";
+import ImgUpload from "./imgUpload/imgUpload";
 
 interface IFinalWriteBodyProps {
   isEdit: boolean;

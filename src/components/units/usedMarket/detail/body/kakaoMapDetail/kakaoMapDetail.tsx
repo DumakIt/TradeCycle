@@ -2,7 +2,7 @@ import { Map, MapMarker, useInjectKakaoMapApi } from "react-kakao-maps-sdk";
 import {
   IUseditemAddress,
   Maybe,
-} from "../../../../commons/types/generated/types";
+} from "../../../../../../commons/types/generated/types";
 
 interface IKakaoMapDetailProps {
   data: Maybe<IUseditemAddress>;

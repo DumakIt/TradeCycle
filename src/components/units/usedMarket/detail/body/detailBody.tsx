@@ -1,6 +1,6 @@
 import * as S from "./detailBodyStyles";
 import Dompurify from "dompurify";
-import KakaoMapDetail from "../../../../commons/usedMarket/kakaoMapDetail/kakaoMapDetail";
+import KakaoMapDetail from "./kakaoMapDetail/kakaoMapDetail";
 import { v4 as uuidv4 } from "uuid";
 import { IUseditem } from "../../../../../commons/types/generated/types";
 

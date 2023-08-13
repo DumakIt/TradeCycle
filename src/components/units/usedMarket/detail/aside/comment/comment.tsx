@@ -1,12 +1,12 @@
 import { Dispatch, MouseEvent, SetStateAction } from "react";
 import { UseFormReset } from "react-hook-form";
 import { useRecoilState } from "recoil";
-import { loggedInUserState } from "../../../../commons/stores";
+import { loggedInUserState } from "../../../../../../commons/stores";
 import {
   IUseditemQuestion,
   Maybe,
-} from "../../../../commons/types/generated/types";
-import { useMutationDeleteUsedItemQuestion } from "../../hooks/mutation/useMutationDeleteUsedItemQuestion";
+} from "../../../../../../commons/types/generated/types";
+import { useMutationDeleteUsedItemQuestion } from "../../../../../commons/hooks/mutation/useMutationDeleteUsedItemQuestion";
 import * as S from "./commentStyles";
 
 interface IDetailCommentProps {

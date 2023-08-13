@@ -5,7 +5,7 @@ import {
   ICreateUseditemInput,
   IUseditemAddress,
   Maybe,
-} from "../../../../commons/types/generated/types";
+} from "../../../../../commons/types/generated/types";
 import { UseFormSetValue } from "react-hook-form";
 
 interface IKakaoMapWriteProps {

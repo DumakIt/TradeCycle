@@ -1,13 +1,13 @@
 import { Dispatch, MouseEvent, SetStateAction } from "react";
 import { useForm, UseFormReset } from "react-hook-form";
 import { useRecoilState } from "recoil";
-import { loggedInUserState } from "../../../../commons/stores";
-import { ICreateUseditemQuestionAnswerInput } from "../../../../commons/types/generated/types";
-import { useMutationCreateUsedItemQuestionAnswer } from "../../hooks/mutation/useMutationCreateUsedItemQuestionAnswer";
-import { useMutationDeleteUsedItemQuestionAnswer } from "../../hooks/mutation/useMutationDeleteUsedItemQuestionAnswer";
-import { useQueryFetchUsedItemQuestionAnswers } from "../../hooks/query/useQueryFetchUsedItemQuestionAnswers";
+import { loggedInUserState } from "../../../../../../commons/stores";
+import { ICreateUseditemQuestionAnswerInput } from "../../../../../../commons/types/generated/types";
+import { useMutationCreateUsedItemQuestionAnswer } from "../../../../../commons/hooks/mutation/useMutationCreateUsedItemQuestionAnswer";
+import { useMutationDeleteUsedItemQuestionAnswer } from "../../../../../commons/hooks/mutation/useMutationDeleteUsedItemQuestionAnswer";
+import { useQueryFetchUsedItemQuestionAnswers } from "../../../../../commons/hooks/query/useQueryFetchUsedItemQuestionAnswers";
 import ReplyUpdate from "../replyUpdate/replyUpdate";
-import { wrapAsync } from "../../utility/asyncFunc";
+import { wrapAsync } from "../../../../../commons/utility/asyncFunc";
 import { v4 as uuidv4 } from "uuid";
 import * as S from "./replyStyles";
 
