@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffectHandleScroll } from "../../hooks/custom/useEffectHandleScroll";
 import { useRouterMovePage } from "../../hooks/custom/useRouterMovePage";
@@ -34,14 +33,15 @@ export default function UsedMarketLayout(): JSX.Element {
                 </span>
                 <span>P</span>
               </S.UserName>
-              <S.Charge onClick={changeIsOpen}>충전</S.Charge>
-              <S.LogOut
+              <S.Func onClick={onClickMovePage("/myPage")}>마이페이지</S.Func>
+              <S.Func onClick={changeIsOpen}>충전</S.Func>
+              <S.Func
                 onClick={() => {
                   void logoutUser();
                 }}
               >
                 로그아웃
-              </S.LogOut>
+              </S.Func>
               <PointChargeModal
                 isOpen={isOpen}
                 data={data?.fetchUserLoggedIn}
@@ -50,12 +50,8 @@ export default function UsedMarketLayout(): JSX.Element {
             </S.UserWrapper>
           ) : (
             <S.FuncWrapper>
-              <Link href="/login">
-                <S.StyledLink>LOGIN</S.StyledLink>
-              </Link>
-              <Link href="/signUp">
-                <S.StyledLink>JOIN US</S.StyledLink>
-              </Link>
+              <S.Func onClick={onClickMovePage("/login")}>LOGIN</S.Func>
+              <S.Func onClick={onClickMovePage("/signUp")}>JOIN US</S.Func>
             </S.FuncWrapper>
           )}
         </div>

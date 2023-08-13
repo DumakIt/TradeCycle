@@ -2,12 +2,20 @@ import { useRouterMovePage } from "../../../../commons/hooks/custom/useRouterMov
 import BuyList from "./buyList/buyList";
 import MyItemList from "./myItemList/myItemList";
 
-export default function MyPageBody(): JSX.Element {
+interface IMyPageBodyProps {
+  isActive: string;
+}
+
+export default function MyPageBody(props: IMyPageBodyProps): JSX.Element {
   const { onClickMovePage } = useRouterMovePage();
   return (
     <>
-      {/* <MyItemList onClickMovePage={onClickMovePage} /> */}
-      <BuyList onClickMovePage={onClickMovePage} />
+      {props.isActive === "myItemList" && (
+        <MyItemList onClickMovePage={onClickMovePage} />
+      )}
+      {props.isActive === "buyList" && (
+        <BuyList onClickMovePage={onClickMovePage} />
+      )}
     </>
   );
 }

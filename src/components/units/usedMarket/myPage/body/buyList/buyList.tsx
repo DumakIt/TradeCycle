@@ -25,7 +25,7 @@ export default function BuyList(props: IBuyListPorps): JSX.Element {
           <p>{idx + 1}</p>
           <p>{el.name}</p>
           <p>{el.price?.toLocaleString()}</p>
-          <p>{el.createdAt.slice(0, 10).replaceAll("-", ".")}</p>
+          <p>{el.soldAt.slice(0, 10).replaceAll("-", ".")}</p>
         </S.ContentsWrapper>
       ))}
     </S.Container>

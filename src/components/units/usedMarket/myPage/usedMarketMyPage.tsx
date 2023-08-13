@@ -17,7 +17,7 @@ export default function UsedMarketMyPage(): JSX.Element {
         isActive={isActive}
       />
       <S.Line></S.Line>
-      <MyPageBody />
+      <MyPageBody isActive={isActive} />
     </S.Container>
   );
 }

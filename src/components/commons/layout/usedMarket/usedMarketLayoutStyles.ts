@@ -58,18 +58,7 @@ export const UserName = styled.div`
   }
 `;
 
-export const Charge = styled.div`
-  font-weight: 500;
-  font-size: 14px;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-export const LogOut = styled.div`
+export const Func = styled.div`
   font-weight: 500;
   font-size: 14px;
   color: white;
@@ -85,16 +74,6 @@ export const FuncWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   width: 130px;
-`;
-
-export const StyledLink = styled.a`
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
 export const ScrollHeaderContainer = styled.div`

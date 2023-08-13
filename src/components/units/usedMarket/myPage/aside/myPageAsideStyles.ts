@@ -6,8 +6,18 @@ interface IProps {
 }
 
 export const Container = styled.aside`
-  width: 250px;
+  min-width: 250px;
   padding: 10px 20px;
+
+  @media (max-width: 1023px) {
+    & > div:last-of-type {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 10px auto;
+      width: 250px;
+    }
+  }
 `;
 
 export const ProfileWrapper = styled.div`
@@ -26,16 +36,19 @@ export const ProfileImgBox = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 180px;
   aspect-ratio: 1/1;
   border-radius: 50%;
   border: 2px solid black;
-  cursor: pointer;
 
   & > img {
     object-fit: cover;
     width: 100%;
     height: 100%;
+  }
+
+  & > input {
+    display: none;
   }
 `;
 

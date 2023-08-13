@@ -4,7 +4,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   max-width: 1200px;
+  min-width: 650px;
   margin: 80px auto 0;
+
+  @media (max-width: 1023px) {
+    flex-direction: column;
+  }
 `;
 
 export const Line = styled.div`

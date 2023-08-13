@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Container = styled.div`
   width: 100%;
+  height: fit-content;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
 `;
@@ -16,22 +17,22 @@ export const TitleWrapper = styled.div`
   }
 
   & > p:nth-of-type(1) {
-    width: 5%;
+    width: 8%;
     text-align: center;
   }
 
   & > p:nth-of-type(2) {
-    width: 75%;
+    width: 65%;
     text-align: center;
   }
 
   & > p:nth-of-type(3) {
-    width: 15%;
+    width: 20%;
     text-align: center;
   }
 
   & > p:nth-of-type(4) {
-    width: 10%;
+    width: 12%;
     text-align: center;
   }
 `;
@@ -48,22 +49,22 @@ export const ContentsWrapper = styled.div`
   }
 
   & > p:nth-of-type(1) {
-    width: 5%;
+    width: 8%;
     text-align: center;
   }
 
   & > p:nth-of-type(2) {
-    width: 75%;
+    width: 65%;
     text-align: center;
   }
 
   & > p:nth-of-type(3) {
-    width: 15%;
+    width: 20%;
     text-align: center;
   }
 
   & > p:nth-of-type(4) {
-    width: 10%;
+    width: 12%;
     text-align: center;
   }
 `;
