@@ -3,19 +3,19 @@
 exports[`main 페이지 snapshot 테스트 1`] = `
 <div>
   <div
-    class="css-1wwuy2j"
+    class="css-1g8wo0y"
   >
     <div
-      class="css-78wp26"
+      class="css-1axgj1d"
     >
       <div>
         <h1
-          class="css-tez4ss"
+          class="css-1q6yft4"
         >
           버리지 말아요
         </h1>
         <p
-          class="css-rsdtfc"
+          class="css-byu2th"
         >
           더이상 사용하지 않는 물건 버리거나
           <br />
@@ -23,25 +23,25 @@ exports[`main 페이지 snapshot 테스트 1`] = `
         </p>
       </div>
       <img
-        class="css-1o8qkht"
+        class="css-peszeb"
         src="/images/mainImgFirst.webp"
       />
     </div>
     <div
-      class="css-spv30w"
+      class="css-1m38szu"
     >
       <img
-        class="css-1o8qkht"
+        class="css-peszeb"
         src="/images/mainImgSecond.webp"
       />
       <div>
         <h1
-          class="css-tez4ss"
+          class="css-1q6yft4"
         >
           누군가는 필요해요
         </h1>
         <p
-          class="css-rsdtfc"
+          class="css-byu2th"
         >
           나는 필요없어도
           <br />
@@ -50,11 +50,11 @@ exports[`main 페이지 snapshot 테스트 1`] = `
       </div>
     </div>
     <div
-      class="css-78wp26"
+      class="css-1axgj1d"
     >
       <div>
         <h1
-          class="css-tez4ss"
+          class="css-1q6yft4"
         >
           여기서 해보아요
         </h1>
@@ -66,7 +66,7 @@ exports[`main 페이지 snapshot 테스트 1`] = `
         </a>
       </div>
       <img
-        class="css-16qsjwx"
+        class="css-1kk7qac"
         src="/images/mainImgThird.webp"
       />
     </div>
