@@ -18,13 +18,14 @@ it("list 페이지 snapshot 테스트", async () => {
     }),
     cache: new InMemoryCache(),
   });
-
-  const result = render(
-    <RecoilRoot>
-      <ApolloProvider client={client}>
-        <ListPage />
-      </ApolloProvider>
-    </RecoilRoot>
-  );
-  expect(result.container).toMatchSnapshot();
+  await act(async () => {
+    const result = render(
+      <RecoilRoot>
+        <ApolloProvider client={client}>
+          <ListPage />
+        </ApolloProvider>
+      </RecoilRoot>
+    );
+    expect(result.container).toMatchSnapshot();
+  });
 });
