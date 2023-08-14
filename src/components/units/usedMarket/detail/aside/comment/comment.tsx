@@ -1,24 +1,11 @@
-import { Dispatch, MouseEvent, SetStateAction } from "react";
-import { UseFormReset } from "react-hook-form";
+import { MouseEvent } from "react";
 import { useRecoilState } from "recoil";
 import { loggedInUserState } from "../../../../../../commons/stores";
-import {
-  IUseditemQuestion,
-  Maybe,
-} from "../../../../../../commons/types/generated/types";
 import { useMutationDeleteUsedItemQuestion } from "../../../../../commons/hooks/mutation/useMutationDeleteUsedItemQuestion";
 import * as S from "./commentStyles";
+import { IProps } from "./commentTypes";
 
-interface IDetailCommentProps {
-  id: string;
-  data: IUseditemQuestion;
-  picture: Maybe<string> | undefined;
-  setIsActive: Dispatch<SetStateAction<string>>;
-  reset: UseFormReset<{ UpdateComment: string; contents: string }>;
-  onClickIsActive: (event: MouseEvent<HTMLDivElement>) => void;
-}
-
-export default function Comment(props: IDetailCommentProps): JSX.Element {
+export default function Comment(props: IProps): JSX.Element {
   const [loggedInUser] = useRecoilState(loggedInUserState);
   const { deleteUsedItemQuestion } = useMutationDeleteUsedItemQuestion();
 

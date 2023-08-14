@@ -1,12 +1,9 @@
 import * as S from "./buyListStyles";
 import { v4 as uuidv4 } from "uuid";
 import { useQueryFetchUsedItemsIBought } from "../../../../../commons/hooks/query/useQueryFetchUsedItemsIBought";
+import { IProps } from "./buyListTypes";
 
-interface IBuyListPorps {
-  onClickMovePage: (path: string) => () => void;
-}
-
-export default function BuyList(props: IBuyListPorps): JSX.Element {
+export default function BuyList(props: IProps): JSX.Element {
   const { data } = useQueryFetchUsedItemsIBought();
 
   return (

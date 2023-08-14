@@ -2,13 +2,9 @@ import * as S from "./detailBodyStyles";
 import Dompurify from "dompurify";
 import KakaoMapDetail from "./kakaoMapDetail/kakaoMapDetail";
 import { v4 as uuidv4 } from "uuid";
-import { IUseditem } from "../../../../../commons/types/generated/types";
+import { IProps } from "./detailBodyTypes";
 
-export interface IDetailBodyProps {
-  data: IUseditem | undefined;
-}
-
-export default function DetailBody(props: IDetailBodyProps): JSX.Element {
+export default function DetailBody(props: IProps): JSX.Element {
   return (
     <S.Container>
       <S.ItemInfoTitle>상품정보</S.ItemInfoTitle>

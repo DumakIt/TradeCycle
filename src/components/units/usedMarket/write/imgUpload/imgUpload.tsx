@@ -1,15 +1,8 @@
-import { ChangeEvent, Dispatch, SetStateAction, useRef } from "react";
+import { ChangeEvent, useRef } from "react";
 import * as S from "./imgUploadStyles";
+import { IProps } from "./imgUploadTypes";
 
-interface IImgUploadArgs {
-  idx: number;
-  images: string;
-  fakeImages: Record<string, string>;
-  setImages: Dispatch<SetStateAction<Record<string, string>>>;
-  setFakeImages: Dispatch<SetStateAction<Record<string, string>>>;
-}
-
-export default function ImgUpload(args: IImgUploadArgs): JSX.Element {
+export default function ImgUpload(props: IProps): JSX.Element {
   const imgRef = useRef<HTMLInputElement>(null);
 
   const onClickImg = (): void => {
@@ -26,18 +19,18 @@ export default function ImgUpload(args: IImgUploadArgs): JSX.Element {
         // 파일리더의 결과값이 string이 아닐수도 있으니 string일때만 실행되도록
         if (typeof data.target?.result === "string") {
           // 미리보기용 이미지 저장
-          args.setFakeImages((prev) => ({
+          props.setFakeImages((prev) => ({
             ...prev,
-            [args.idx]: data.target?.result,
+            [props.idx]: data.target?.result,
           }));
           // DB용 이미지 저장
-          args.setImages((prev) => ({
+          props.setImages((prev) => ({
             ...prev,
-            [args.idx]: file,
+            [props.idx]: file,
           }));
           // 만약 가장 마지막 이미지를 추가했을 경우 새로운 빈 이미지 박스 생성하기 위한 객체 길이 증가
-          if (Object.values(args.fakeImages).length - 1 === args.idx) {
-            args.setFakeImages((prev) => ({ ...prev, [args.idx + 1]: "" }));
+          if (Object.values(props.fakeImages).length - 1 === props.idx) {
+            props.setFakeImages((prev) => ({ ...prev, [props.idx + 1]: "" }));
           }
         }
       };
@@ -46,12 +39,12 @@ export default function ImgUpload(args: IImgUploadArgs): JSX.Element {
 
   return (
     <div>
-      {Boolean(args.fakeImages[args.idx]) || Boolean(args.images) ? (
-        args.fakeImages[args.idx]?.substring(0, 4) === "data" ? (
-          <S.Img src={args.fakeImages[args.idx]} onClick={onClickImg} />
+      {Boolean(props.fakeImages[props.idx]) || Boolean(props.images) ? (
+        props.fakeImages[props.idx]?.substring(0, 4) === "data" ? (
+          <S.Img src={props.fakeImages[props.idx]} onClick={onClickImg} />
         ) : (
           <S.Img
-            src={`https://storage.googleapis.com/${args.images}`}
+            src={`https://storage.googleapis.com/${props.images}`}
             onClick={onClickImg}
           />
         )

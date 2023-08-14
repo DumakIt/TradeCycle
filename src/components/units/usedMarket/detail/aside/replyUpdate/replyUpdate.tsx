@@ -1,19 +1,10 @@
-import { Dispatch, SetStateAction } from "react";
 import { useForm } from "react-hook-form";
-import { IUseditemQuestionAnswer } from "../../../../../../commons/types/generated/types";
 import { useMutationUpdateUsedItemQuestionAnswer } from "../../../../../commons/hooks/mutation/useMutationUpdateUsedItemQuestionAnswer";
 import { wrapAsync } from "../../../../../commons/utility/asyncFunc";
-
 import * as S from "./replyUpdateStyles";
+import { IProps } from "./replyUpdateTypes";
 
-interface IReplyUpdateProps {
-  id: string;
-  useditemQuestionId: string;
-  data: IUseditemQuestionAnswer;
-  setIsActive: Dispatch<SetStateAction<string>>;
-}
-
-export default function ReplyUpdate(props: IReplyUpdateProps): JSX.Element {
+export default function ReplyUpdate(props: IProps): JSX.Element {
   const { updateUseditemQuestionAnswer } =
     useMutationUpdateUsedItemQuestionAnswer();
   const { handleSubmit, reset, register } = useForm<{ UpdateReply: string }>();

@@ -1,12 +1,9 @@
 import * as S from "./myItemListStyles";
 import { v4 as uuidv4 } from "uuid";
 import { useQueryFetchUsedItemsISold } from "../../../../../commons/hooks/query/useQueryFetchUsedItemsISold";
+import { IProps } from "./myItemListTypes";
 
-interface IMyItemListProps {
-  onClickMovePage: (path: string) => () => void;
-}
-
-export default function MyItemList(props: IMyItemListProps): JSX.Element {
+export default function MyItemList(props: IProps): JSX.Element {
   const { data } = useQueryFetchUsedItemsISold();
 
   return (

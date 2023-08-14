@@ -1,12 +1,9 @@
 import { useRouterMovePage } from "../../../../commons/hooks/custom/useRouterMovePage";
 import BuyList from "./buyList/buyList";
 import MyItemList from "./myItemList/myItemList";
+import { IProps } from "./myPageBodyTypes";
 
-interface IMyPageBodyProps {
-  isActive: string;
-}
-
-export default function MyPageBody(props: IMyPageBodyProps): JSX.Element {
+export default function MyPageBody(props: IProps): JSX.Element {
   const { onClickMovePage } = useRouterMovePage();
   return (
     <>

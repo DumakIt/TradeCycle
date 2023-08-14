@@ -1,5 +1,5 @@
-import { Dispatch, MouseEvent, SetStateAction } from "react";
-import { useForm, UseFormReset } from "react-hook-form";
+import { MouseEvent } from "react";
+import { useForm } from "react-hook-form";
 import { useRecoilState } from "recoil";
 import { loggedInUserState } from "../../../../../../commons/stores";
 import { ICreateUseditemQuestionAnswerInput } from "../../../../../../commons/types/generated/types";
@@ -10,18 +10,9 @@ import ReplyUpdate from "../replyUpdate/replyUpdate";
 import { wrapAsync } from "../../../../../commons/utility/asyncFunc";
 import { v4 as uuidv4 } from "uuid";
 import * as S from "./replyStyles";
+import { IProps } from "./replyTypes";
 
-interface IReplyProps {
-  id: string;
-  isActive: string;
-  setIsActive: Dispatch<SetStateAction<string>>;
-  reset: UseFormReset<{
-    UpdateComment: string;
-    contents: string;
-  }>;
-}
-
-export default function Reply(props: IReplyProps): JSX.Element {
+export default function Reply(props: IProps): JSX.Element {
   const [loggedInUser] = useRecoilState(loggedInUserState);
   const { data } = useQueryFetchUsedItemQuestionAnswers({
     useditemQuestionId: props.id,

@@ -1,20 +1,9 @@
 import * as S from "./kakaoMapWriteStyles";
 import { ChangeEvent, useState } from "react";
 import { Map, MapMarker, useInjectKakaoMapApi } from "react-kakao-maps-sdk";
-import {
-  ICreateUseditemInput,
-  IUseditemAddress,
-  Maybe,
-} from "../../../../../commons/types/generated/types";
-import { UseFormSetValue } from "react-hook-form";
+import { IProps } from "./kakaoMapWriteTypes";
 
-interface IKakaoMapWriteProps {
-  isEdit: boolean;
-  data: Maybe<IUseditemAddress> | undefined;
-  setValue: UseFormSetValue<ICreateUseditemInput>;
-}
-
-export default function KakaoMapWrite(props: IKakaoMapWriteProps): JSX.Element {
+export default function KakaoMapWrite(props: IProps): JSX.Element {
   const [keyword, setKeyword] = useState("서울 시청");
   const [position, setPosition] = useState(
     props.isEdit && props.data !== undefined

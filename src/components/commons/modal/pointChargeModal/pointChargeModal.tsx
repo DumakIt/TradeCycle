@@ -1,21 +1,13 @@
 import { Modal } from "antd";
 import Script from "next/script";
 import { MouseEvent, useState } from "react";
-import { IUser } from "../../../../commons/types/generated/types";
 import { useChargePoints } from "../../hooks/custom/useChargePoints";
 import { useSetIsToggle } from "../../hooks/custom/useSetIsToggle";
 import { v4 as uuidv4 } from "uuid";
 import * as S from "./pointChargeModalStyles";
+import { IProps } from "./pointChargeModalTypes";
 
-interface IPointChargeModal {
-  isOpen: boolean;
-  data: IUser;
-  changeIsOpen: () => void;
-}
-
-export default function PointChargeModal(
-  props: IPointChargeModal
-): JSX.Element {
+export default function PointChargeModal(props: IProps): JSX.Element {
   const [isSelete, changeIsSelete, setIsSelete] = useSetIsToggle();
   const [amount, setAmount] = useState("");
   const { onClickCharge } = useChargePoints();

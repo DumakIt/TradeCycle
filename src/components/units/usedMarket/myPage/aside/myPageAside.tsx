@@ -1,14 +1,7 @@
-import { MouseEvent } from "react";
-import { IUser } from "../../../../../commons/types/generated/types";
 import * as S from "./myPageAsideStyles";
+import { IProps } from "./myPageAsideTypes";
 
-interface IMyPageAsideProps {
-  loggedInUser: Partial<IUser>;
-  isActive: string;
-  onClickIsActive: (event: MouseEvent<HTMLParagraphElement>) => void;
-}
-
-export default function MyPageAside(props: IMyPageAsideProps): JSX.Element {
+export default function MyPageAside(props: IProps): JSX.Element {
   return (
     <S.Container>
       <S.ProfileWrapper>

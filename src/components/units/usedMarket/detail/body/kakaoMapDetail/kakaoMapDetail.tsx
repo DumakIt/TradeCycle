@@ -1,16 +1,7 @@
 import { Map, MapMarker, useInjectKakaoMapApi } from "react-kakao-maps-sdk";
-import {
-  IUseditemAddress,
-  Maybe,
-} from "../../../../../../commons/types/generated/types";
+import { IProps } from "./kakaoMapDetailTypes";
 
-interface IKakaoMapDetailProps {
-  data: Maybe<IUseditemAddress>;
-}
-
-export default function KakaoMapDetail(
-  props: IKakaoMapDetailProps
-): JSX.Element {
+export default function KakaoMapDetail(props: IProps): JSX.Element {
   const { loading } = useInjectKakaoMapApi({
     appkey: "bd267c3409ad63bff12f4bc9683e42a5",
     libraries: ["services"],

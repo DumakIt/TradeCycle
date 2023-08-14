@@ -1,35 +1,9 @@
-import { Dispatch, SetStateAction } from "react";
-import {
-  UseFormHandleSubmit,
-  UseFormRegister,
-  UseFormReset,
-} from "react-hook-form";
-import { IUseditemQuestion } from "../../../../../../commons/types/generated/types";
 import { useMutationUpdateUsedItemQuestion } from "../../../../../commons/hooks/mutation/useMutationUpdateUsedItemQuestion";
 import { wrapAsync } from "../../../../../commons/utility/asyncFunc";
 import * as S from "./commentUpdateStyles";
+import { IProps } from "./commentUpdateTypes";
 
-interface IDetailCommentUpdateProps {
-  id: string;
-  data: IUseditemQuestion;
-  handleSubmit: UseFormHandleSubmit<{
-    UpdateComment: string;
-    contents: string;
-  }>;
-  setIsActive: Dispatch<SetStateAction<string>>;
-  register: UseFormRegister<{
-    UpdateComment: string;
-    contents: string;
-  }>;
-  reset: UseFormReset<{
-    UpdateComment: string;
-    contents: string;
-  }>;
-}
-
-export default function CommentUpdate(
-  props: IDetailCommentUpdateProps
-): JSX.Element {
+export default function CommentUpdate(props: IProps): JSX.Element {
   const { updateUsedItemQuestion } = useMutationUpdateUsedItemQuestion();
 
   const onClickUpdateCanCel = (): void => {

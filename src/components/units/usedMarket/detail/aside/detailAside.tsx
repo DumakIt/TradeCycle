@@ -4,19 +4,14 @@ import InfiniteScroll from "react-infinite-scroller";
 import Comment from "./comment/comment";
 import { wrapAsync } from "../../../../commons/utility/asyncFunc";
 import { v4 as uuidv4 } from "uuid";
-import { IUseditem } from "../../../../../commons/types/generated/types";
 import { useSetIsActive } from "../../../../commons/hooks/custom/useSetIsActive";
 import { useMutationCreateUsedItemQuestion } from "../../../../commons/hooks/mutation/useMutationCreateUsedItemQuestion";
 import { useQueryFetchUsedItemQuestions } from "../../../../commons/hooks/query/useQueryFetchUsedItemQuestions";
 import CommentUpdate from "./commentUpdate/commentUpdate";
 import Reply from "./reply/reply";
+import { IProps } from "./detailAsideTypes";
 
-interface IDetailAsideProps {
-  data: IUseditem | undefined;
-  id: string;
-}
-
-export default function DetailAside(props: IDetailAsideProps): JSX.Element {
+export default function DetailAside(props: IProps): JSX.Element {
   const [onClickIsActive, isActive, setIsActive] = useSetIsActive();
   const { createUsedItemQuestion } = useMutationCreateUsedItemQuestion();
   const { register, handleSubmit, reset } = useForm<{

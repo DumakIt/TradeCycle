@@ -1,18 +1,12 @@
 import { useRecoilState } from "recoil";
 import { loggedInUserState } from "../../../../../commons/stores";
-import { IUseditem } from "../../../../../commons/types/generated/types";
 import { useRouterMovePage } from "../../../../commons/hooks/custom/useRouterMovePage";
 import { useMutationCreatePointTransactionOfBuyingAndSelling } from "../../../../commons/hooks/mutation/useMutationCreatePointTransactionOfBuyingAndSelling";
 import { useMutationDeleteUsedItem } from "../../../../commons/hooks/mutation/useMutationDeleteUsedItem";
-
 import * as S from "./detailHeaderStyles";
+import { IProps } from "./detailHeaderTypes";
 
-export interface IDetailHeaderProps {
-  data: IUseditem | undefined;
-  id: string;
-}
-
-export default function DetailHeader(props: IDetailHeaderProps): JSX.Element {
+export default function DetailHeader(props: IProps): JSX.Element {
   const [loggedInUser] = useRecoilState(loggedInUserState);
   const { onClickMovePage } = useRouterMovePage();
   const { deleteUsedItem } = useMutationDeleteUsedItem();

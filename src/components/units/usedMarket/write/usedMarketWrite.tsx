@@ -7,25 +7,15 @@ import { useRouterMovePage } from "../../../commons/hooks/custom/useRouterMovePa
 import { useMutationCreateUsedItem } from "../../../commons/hooks/mutation/useMutationCreateUsedItem";
 import { useEffectSetImage } from "../../../commons/hooks/custom/useEffectSetImage";
 import { useMutationUpdateUsedItem } from "../../../commons/hooks/mutation/useMutationUpdateUsedItem";
-import {
-  ICreateUseditemInput,
-  IQuery,
-} from "../../../../commons/types/generated/types";
+import { ICreateUseditemInput } from "../../../../commons/types/generated/types";
 import { useEffectSetFormData } from "../../../commons/hooks/custom/useEffectSetFormData";
 import { wrapAsync } from "../../../commons/utility/asyncFunc";
 import { v4 as uuidv4 } from "uuid";
 import KakaoMapWrite from "./kakaoMapWrite/kakaoMapWrite";
 import ImgUpload from "./imgUpload/imgUpload";
+import { IProps } from "./usedMarketWriteTypes";
 
-interface IFinalWriteBodyProps {
-  isEdit: boolean;
-  id?: string;
-  data?: Pick<IQuery, "fetchUseditem"> | undefined;
-}
-
-export default function UsedMarketWrite(
-  props: IFinalWriteBodyProps
-): JSX.Element {
+export default function UsedMarketWrite(props: IProps): JSX.Element {
   const [images, setImages] = useState<Record<string, string>>({ 0: "" });
   const [fakeImages, setFakeImages] = useState<Record<string, string>>({
     0: "",
