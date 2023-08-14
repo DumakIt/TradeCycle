@@ -31,9 +31,7 @@ export default function DetailAside(props: IProps): JSX.Element {
             <S.SellerDefaultIcon />
           ) : (
             <img
-              src={`https://storage.googleapis.com/${
-                props.data?.seller?.picture ?? ""
-              }`}
+              src={`https://storage.googleapis.com/${props.data?.seller?.picture}`}
             />
           )}
         </S.SellerIconBox>

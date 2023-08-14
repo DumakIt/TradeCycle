@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { gql, useQuery } from "@apollo/client";
 import { useRecoilState } from "recoil";
 import { loggedInUserState } from "../../../../commons/stores";
@@ -21,9 +22,12 @@ export const useQueryFetchUserLoggedIn = (): typeof data => {
   const [, setLoggedInUser] = useRecoilState(loggedInUserState);
   const data =
     useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
-  if (data.data !== undefined) {
-    setLoggedInUser(data.data.fetchUserLoggedIn);
-  }
+
+  useEffect(() => {
+    if (data.data !== undefined) {
+      setLoggedInUser(data.data.fetchUserLoggedIn);
+    }
+  }, [data]);
 
   return data;
 };

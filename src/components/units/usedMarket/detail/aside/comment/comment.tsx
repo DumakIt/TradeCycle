@@ -23,9 +23,7 @@ export default function Comment(props: IProps): JSX.Element {
             {props.picture === null ? (
               <S.CommentWriterDefaultIcon />
             ) : (
-              <img
-                src={`https://storage.googleapis.com/${props.picture ?? ""}`}
-              />
+              <img src={`https://storage.googleapis.com/${props.picture}`} />
             )}
           </S.CommentWriterIconBox>
           <S.CommentWriterCreateAtWrapper>

@@ -19,9 +19,7 @@ export default function DetailHeader(props: IProps): JSX.Element {
         <img
           src={
             props.data?.images?.[0] !== ""
-              ? `https://storage.googleapis.com/${
-                  props.data?.images?.[0] ?? ""
-                }`
+              ? `https://storage.googleapis.com/${props.data?.images?.[0]}`
               : "/images/defaultItem.webp"
           }
         />

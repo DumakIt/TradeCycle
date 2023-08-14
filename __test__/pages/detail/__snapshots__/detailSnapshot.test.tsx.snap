@@ -9,7 +9,7 @@ exports[`detail 페이지 snapshot 테스트 1`] = `
       class="css-1rix88y"
     >
       <img
-        src="https://storage.googleapis.com/"
+        src="https://storage.googleapis.com/undefined"
       />
     </div>
     <div
@@ -124,7 +124,7 @@ exports[`detail 페이지 snapshot 테스트 1`] = `
           class="css-637fsy"
         >
           <img
-            src="https://storage.googleapis.com/"
+            src="https://storage.googleapis.com/undefined"
           />
         </div>
         <div

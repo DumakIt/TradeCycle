@@ -67,9 +67,7 @@ export default function Reply(props: IProps): JSX.Element {
                         <S.ReplyWriterDefaultIcon />
                       ) : (
                         <img
-                          src={`https://storage.googleapis.com/${
-                            el.user.picture ?? ""
-                          }`}
+                          src={`https://storage.googleapis.com/${el.user.picture}`}
                         />
                       )}
                     </S.ReplyWriterIconBox>
