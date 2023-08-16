@@ -10,7 +10,7 @@ import {
 } from "@apollo/client";
 import fetch from "cross-fetch";
 
-it("detail 페이지 snapshot 테스트", async () => {
+it("myPage 페이지 snapshot 테스트", async () => {
   const client = new ApolloClient({
     link: new HttpLink({
       uri: "http://mock.com/graphql",

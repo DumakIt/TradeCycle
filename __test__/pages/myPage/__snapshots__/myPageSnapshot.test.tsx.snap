@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`detail 페이지 snapshot 테스트 1`] = `
+exports[`myPage 페이지 snapshot 테스트 1`] = `
 <div>
   <div
     class="css-1ygl6wp"
