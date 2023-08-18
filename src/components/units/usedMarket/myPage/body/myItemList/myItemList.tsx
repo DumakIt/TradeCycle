@@ -16,6 +16,7 @@ export default function MyItemList(props: IProps): JSX.Element {
       </S.TitleWrapper>
       {data?.fetchUseditemsISold.map((el, idx) => (
         <S.ContentsWrapper
+          data-testid="div-myItemList"
           key={uuidv4()}
           onClick={props.onClickMovePage(`/${el._id}`)}
         >

@@ -5,7 +5,7 @@ import {
 } from "../../../../commons/types/generated/types";
 
 export const FETCH_USED_ITEMS_I_BOUGHT = gql`
-  query {
+  query fetchUseditemsIBought {
     fetchUseditemsIBought {
       _id
       name

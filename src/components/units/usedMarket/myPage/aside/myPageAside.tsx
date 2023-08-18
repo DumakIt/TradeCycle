@@ -19,6 +19,7 @@ export default function MyPageAside(props: IProps): JSX.Element {
       <hr />
       <div>
         <S.Tab
+          data-testid="btn-myItemList"
           id="myItemList"
           onClick={props.onClickIsActive}
           select={props.isActive === "myItemList"}
@@ -26,6 +27,7 @@ export default function MyPageAside(props: IProps): JSX.Element {
           내 상품
         </S.Tab>
         <S.Tab
+          data-testid="btn-buyList"
           id="buyList"
           onClick={props.onClickIsActive}
           select={props.isActive === "buyList"}

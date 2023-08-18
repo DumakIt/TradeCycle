@@ -202,4 +202,36 @@ export const apis = [
       })
     );
   }),
+
+  gql.query("fetchUseditemsISold", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        fetchUseditemsISold: [
+          {
+            _id: "test-item-sold",
+            name: "테스트 상품명 판매",
+            price: 10000,
+            createdAt: "2023-08-06T11:52:08.143Z",
+            __typename: "fetchUseditemsISold",
+          },
+        ],
+      })
+    );
+  }),
+
+  gql.query("fetchUseditemsIBought", (_, res, ctx) => {
+    return res(
+      ctx.data({
+        fetchUseditemsIBought: [
+          {
+            _id: "test-item-bought",
+            name: "테스트 상품명 구매",
+            price: 12000,
+            soldAt: "2023-08-06T11:52:08.143Z",
+            __typename: "fetchUseditemsIBought",
+          },
+        ],
+      })
+    );
+  }),
 ];

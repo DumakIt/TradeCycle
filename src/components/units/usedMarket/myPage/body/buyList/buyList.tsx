@@ -16,6 +16,7 @@ export default function BuyList(props: IProps): JSX.Element {
       </S.TitleWrapper>
       {data?.fetchUseditemsIBought.map((el, idx) => (
         <S.ContentsWrapper
+          data-testid="div-buyList"
           key={uuidv4()}
           onClick={props.onClickMovePage(`/${el._id}`)}
         >

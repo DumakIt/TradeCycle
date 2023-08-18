@@ -42,12 +42,14 @@ exports[`myPage 페이지 snapshot 테스트 1`] = `
       <div>
         <p
           class="css-10n8aqv"
+          data-testid="btn-myItemList"
           id="myItemList"
         >
           내 상품
         </p>
         <p
           class="css-g7eg22"
+          data-testid="btn-buyList"
           id="buyList"
         >
           구매 내역
