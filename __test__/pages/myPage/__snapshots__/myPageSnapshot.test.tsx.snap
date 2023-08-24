@@ -3,10 +3,10 @@
 exports[`myPage 페이지 snapshot 테스트 1`] = `
 <div>
   <div
-    class="css-1ygl6wp"
+    class="css-1tj311y"
   >
     <aside
-      class="css-1dekbem"
+      class="css-15s6kli"
     >
       <div
         class="css-11y05fz"
@@ -41,19 +41,25 @@ exports[`myPage 페이지 snapshot 테스트 1`] = `
       <hr />
       <div>
         <p
-          class="css-10n8aqv"
+          class="css-1xw8xc"
           data-testid="btn-myItemList"
           id="myItemList"
         >
           내 상품
         </p>
         <p
-          class="css-g7eg22"
+          class="css-1bwyg5m"
           data-testid="btn-buyList"
           id="buyList"
         >
           구매 내역
         </p>
+        <p
+          class="css-1bwyg5m"
+        >
+          포인트 충전
+        </p>
+        <div />
       </div>
     </aside>
     <div
