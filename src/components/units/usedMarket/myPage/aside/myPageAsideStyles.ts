@@ -2,19 +2,23 @@ import { UserOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 interface IProps {
-  select: boolean;
+  select?: boolean;
 }
 
 export const Container = styled.aside`
   min-width: 250px;
-  padding: 10px 20px;
+
+  & > div:last-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   @media (max-width: 1023px) {
     & > div:last-of-type {
-      display: flex;
       flex-direction: row;
       justify-content: space-between;
-      margin: 10px auto;
       width: 250px;
     }
   }
@@ -58,8 +62,7 @@ export const UserDefaultIcon = styled(UserOutlined)`
 `;
 
 export const Tab = styled.p`
-  padding-top: 14px;
-  text-align: center;
+  padding: 10px 0;
   font-size: 20px;
   text-decoration: ${(props: IProps) => (props.select ? "underline" : "none")};
   cursor: pointer;

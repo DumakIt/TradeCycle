@@ -5,7 +5,6 @@ import { useSearch } from "../../hooks/custom/useSearch";
 import { useSetIsToggle } from "../../hooks/custom/useSetIsToggle";
 import { useMutationLogoutUser } from "../../hooks/mutation/useMutationLogoutUser";
 import { useQueryFetchUserLoggedIn } from "../../hooks/query/useQueryFetchUserLoggedIn";
-import PointChargeModal from "../../modal/pointChargeModal/pointChargeModal";
 import * as S from "./usedMarketLayoutStyles";
 
 export default function UsedMarketLayout(): JSX.Element {
@@ -34,7 +33,6 @@ export default function UsedMarketLayout(): JSX.Element {
                 <span>P</span>
               </S.UserName>
               <S.Func onClick={onClickMovePage("/myPage")}>마이페이지</S.Func>
-              <S.Func onClick={changeIsOpen}>충전</S.Func>
               <S.Func
                 onClick={() => {
                   void logoutUser();
@@ -42,11 +40,6 @@ export default function UsedMarketLayout(): JSX.Element {
               >
                 로그아웃
               </S.Func>
-              <PointChargeModal
-                isOpen={isOpen}
-                data={data?.fetchUserLoggedIn}
-                changeIsOpen={changeIsOpen}
-              />
             </S.UserWrapper>
           ) : (
             <S.FuncWrapper>

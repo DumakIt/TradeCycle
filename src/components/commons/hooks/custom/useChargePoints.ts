@@ -7,7 +7,7 @@ declare const window: typeof globalThis & {
 };
 
 interface IonClickChargeArgs {
-  data: IUser;
+  data: Partial<IUser>;
   amount: string;
   onClickCancel: () => void;
 }
