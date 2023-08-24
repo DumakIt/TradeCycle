@@ -1,6 +1,12 @@
 
 현재는 서버 기능 수정으로 서비스 배포가 잠시중단된 상태입니다.
 
+## Installation
+
+```bash
+  yarn install
+  yarn dev
+```
 ---
 
 ## 주요 기술 스택 및 선택 이유
