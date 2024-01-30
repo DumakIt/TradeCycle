@@ -1,6 +1,3 @@
-
-현재는 서버 기능 수정으로 서비스 배포가 잠시중단된 상태입니다.
-
 ## Installation
 
 ```bash
@@ -33,10 +30,7 @@
 
 ![FileReader](https://github.com/DumakIt/TradeCycle/assets/112146844/67bb0519-554d-4ac4-bb1d-70a03ee6836e)
 
-2. **유저 데이터 보호를 위해 accessToken을 브라우저 웹 스토리지에 저장 X**
-로그인 데이터를 웹 브라우저 스토리지에 저장하지 않고 refreshToken을 이용하여 토큰 노출의 위험성을 줄였습니다.
-
-3. **XSS 공격 대비를 위한 dompurify를 이용**
+2. **XSS 공격 대비를 위한 dompurify를 이용**
 react-quill 이용시 XSS공격을 대비해 Dompurify를 이용하였습니다.
 
 ![dompurify](https://github.com/DumakIt/TradeCycle/assets/112146844/7407231f-2d78-4b72-9fea-455760e45ba2)
